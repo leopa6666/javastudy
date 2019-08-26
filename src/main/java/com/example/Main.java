@@ -100,6 +100,7 @@ public class Main {
     
         //3. 解析して中身をとりだします。
         Element bookList = doc.getDocumentElement();
+        System.out.println("Child★"+bookList.getFirstChild());
         NodeList nodes = bookList.getElementsByTagName("Library");
         System.out.println("★"+nodes);
         for(int i=0; i<nodes.getLength();i++)
