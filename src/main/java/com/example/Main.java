@@ -50,6 +50,7 @@ public class Main {
 
   @RequestMapping("/")
   String index() {
+    //test
     return "index";
   }
 
