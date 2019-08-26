@@ -90,14 +90,18 @@ public class Main {
 
     int rspCode = urlConn.getResponseCode();
     if (rspCode == 200) {
-        InputStream ist = urlConn.getInputStream();
-        InputStreamReader isr = new InputStreamReader(ist);
-        BufferedReader br = new BufferedReader(isr);
+
+        InputStream in = urlConn.getInputStream();
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse(in);
+        in.close();
     
-        String nextLine = br.readLine();
-        while (nextLine != null) {
-            System.out.println(nextLine);
-            nextLine = br.readLine();
+        //3. 解析して中身をとりだします。
+        NodeList nodes = doc.getElementsByTagName("systemname");
+        for(int i=0; i<nodes.getLength();i++)
+        {
+            System.out.println(nodes.item(i).getTextContent());
         }
     }
     /*
