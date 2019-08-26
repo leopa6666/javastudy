@@ -65,7 +65,7 @@ public class Main {
   }
 
   @RequestMapping("/calilrec")
-  String calil() {
+  String calil() throws Exception {
     URL url = new URL("http://api.calil.jp/library");
     HttpURLConnection conn = (HttpURLConnection)url.openConnection();
     conn.setDoOutput(true);
