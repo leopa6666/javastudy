@@ -79,7 +79,7 @@ public class Main {
     URL url = new URL("http://api.calil.jp/library");
     HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
     System.out.println("sending request...");
-    urlConn.setRequestMethod("POST");
+    urlConn.setRequestMethod("GET");
     urlConn.setAllowUserInteraction(false); // no user interaction
     urlConn.setDoOutput(true);
     OutputStreamWriter out = new OutputStreamWriter(urlConn.getOutputStream(),StandardCharsets.UTF_8);
@@ -91,7 +91,7 @@ public class Main {
     urlConn.connect();
     Map headerFields = urlConn.getHeaderFields();
     System.out.println("header fields are: " + headerFields);
-    
+
     int rspCode = urlConn.getResponseCode();
     if (rspCode == 200) {
 
