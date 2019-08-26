@@ -67,12 +67,13 @@ public class Main {
   @RequestMapping("/calilrec")
   String calil() throws Exception {
     URL url = new URL("http://api.calil.jp/library");
+    System.out.println(url);
     HttpURLConnection conn = (HttpURLConnection)url.openConnection();
     conn.setDoOutput(true);
     conn.connect();
     //1. パラメーターを送って
     PrintWriter out = new PrintWriter(conn.getOutputStream());
-    out.write("appkey={eff2329beb9938a9b6443b5795ff2db1}&pref=埼玉県");
+    out.write("?appkey={eff2329beb9938a9b6443b5795ff2db1}&pref=埼玉県");
     out.flush();
     out.close();
     //2. XMLを取得して
