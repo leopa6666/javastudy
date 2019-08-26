@@ -28,11 +28,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.HttpURLConnection;
+import java.io.PrintWriter;//
+import java.net.HttpsURLConnection;
+import java.net.HttpURLConnection;//
 import java.net.URL;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.BufferedReader;
+import javax.xml.parsers.DocumentBuilder;//
+import javax.xml.parsers.DocumentBuilderFactory;//
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -82,8 +84,7 @@ public class Main {
     urlConn.setDoOutput(true); // want to send
     urlConn.setRequestProperty( "Content-type", "text/xml" );
     urlConn.setRequestProperty( "accept", "text/xml" );
-    urlConn.setRequestProperty( "authorization", "Basic " + 
-        encode("administrator:collation"));
+    urlConn.setRequestProperty( "authorization", "Basic ");
     Map headerFields = urlConn.getHeaderFields();
     System.out.println("header fields are: " + headerFields);
 
