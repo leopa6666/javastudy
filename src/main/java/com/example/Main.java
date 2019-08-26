@@ -26,6 +26,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.OutputStreamWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;//
@@ -76,10 +77,6 @@ public class Main {
 
     //HttpsURLConnection.setDefaultHostnameVerifier(hv);
     URL url = new URL("http://api.calil.jp/library");
-    OutputStreamWriter out = new OutputStreamWriter(con.getOutputStream(),StandardCharsets.UTF_8);
-    out.write(parameter);
-    out.flush();
-    out.close();
     HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
 
     System.out.println("sending request...");
@@ -87,6 +84,10 @@ public class Main {
     urlConn.setAllowUserInteraction(false); // no user interaction
     urlConn.setDoOutput(true); // want to send
     Map headerFields = urlConn.getHeaderFields();
+    OutputStreamWriter out = new OutputStreamWriter(con.getOutputStream(),StandardCharsets.UTF_8);
+    out.write("?appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県");
+    out.flush();
+    out.close();
     urlConn.connect();
     System.out.println("header fields are: " + headerFields);
 
