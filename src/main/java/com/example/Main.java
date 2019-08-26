@@ -69,7 +69,7 @@ public class Main {
 
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
 
-    HttpsURLConnection.setDefaultHostnameVerifier(hv);
+    //HttpsURLConnection.setDefaultHostnameVerifier(hv);
     URL url = new
       URL("http://api.calil.jp/library"+
           "?appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県");
