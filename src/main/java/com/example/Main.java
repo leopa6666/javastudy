@@ -76,13 +76,18 @@ public class Main {
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
 
     //HttpsURLConnection.setDefaultHostnameVerifier(hv);
-    URL url = new URL("http://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県");
+    URL url = new URL("http://api.calil.jp/library");
     HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
     System.out.println("sending request...");
-    urlConn.setRequestMethod("GET");
+    urlConn.setRequestMethod("POST");
     urlConn.setAllowUserInteraction(false); // no user interaction
     urlConn.setDoOutput(true); // want to send
     Map headerFields = urlConn.getHeaderFields();
+    OutputStreamWriter out = new OutputStreamWriter(urlConn.getOutputStream(),StandardCharsets.UTF_8);
+    out.write('appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県');
+    out.flush();
+    out.close();
+
     urlConn.connect();
     System.out.println("header fields are: " + headerFields);
 
