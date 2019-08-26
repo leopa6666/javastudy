@@ -33,6 +33,7 @@ import java.io.PrintWriter;//
 import javax.net.ssl.HttpsURLConnection;
 import java.net.HttpURLConnection;//
 import java.net.URL;
+import java.net.URLEncoder;
 import java.io.BufferedReader;
 import javax.xml.parsers.DocumentBuilder;//
 import javax.xml.parsers.DocumentBuilderFactory;//
@@ -76,7 +77,14 @@ public class Main {
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
 
     //HttpsURLConnection.setDefaultHostnameVerifier(hv);
-    URL url = new URL("http://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県");
+        //エンコードしたい文字列
+        String source = "http://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県";
+        //エンコード前にバイト配列に置き換える際のエンコーディング
+        String encoding = "UTF-8";
+
+        //エンコード処理
+        String result = URLEncoder.encode(source, encoding);
+    URL url = new URL(result);
     HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
     System.out.println("sending request...");
     urlConn.setRequestMethod("GET");
