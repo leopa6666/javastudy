@@ -26,6 +26,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -51,6 +59,33 @@ public class Main {
   @RequestMapping("/")
   String index() {
     //test
+    return "index";
+  }
+
+  @RequestMapping("/calilrec")
+  String calil() {
+    URL url = new URL("http://api.calil.jp/library");
+    HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+    conn.setDoOutput(true);
+    conn.connect();
+    //1. パラメーターを送って
+    PrintWriter out = new PrintWriter(conn.getOutputStream());
+    out.write("appkey={eff2329beb9938a9b6443b5795ff2db1}&pref=埼玉県");
+    out.flush();
+    out.close();
+    //2. XMLを取得して
+    InputStream in = conn.getInputStream();
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    Document doc = builder.parse(in);
+    in.close();
+
+    //3. 解析して中身をとりだします。
+    NodeList nodes = doc.getElementsByTagName("systemname");
+    for(int i=0; i<nodes.getLength();i++)
+    {
+        System.out.println(nodes.item(i).getTextContent());
+    }
     return "index";
   }
 
