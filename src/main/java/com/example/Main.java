@@ -77,15 +77,8 @@ public class Main {
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
 
     //HttpsURLConnection.setDefaultHostnameVerifier(hv);
-        //エンコードしたい文字列
-        String source = "http://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県";
-        //エンコード前にバイト配列に置き換える際のエンコーディング
-        String encoding = "UTF-8";
-
-        //エンコード処理
-        String result = URLEncoder.encode(source, encoding);
-    URL url = new URL(result);
-    HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
+    URL url = new URL("https://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県");
+    HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
     System.out.println("sending request...");
     urlConn.setRequestMethod("GET");
     urlConn.setAllowUserInteraction(false); // no user interaction
