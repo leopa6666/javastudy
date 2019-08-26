@@ -66,7 +66,7 @@ public class Main {
 
   @RequestMapping("/calilrec")
   String calil() throws Exception {
-    URL url = new URL("http://api.calil.jp/library");
+    URL url = new URL("http://api.calil.jp/library?appkey={eff2329beb9938a9b6443b5795ff2db1}&pref=埼玉県");
     System.out.println(url);
     HttpURLConnection conn = (HttpURLConnection)url.openConnection();
     conn.setDoOutput(true);
