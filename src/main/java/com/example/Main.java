@@ -76,7 +76,7 @@ public class Main {
     URL url = new
       URL("http://api.calil.jp/library"+
           "?appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県");
-    HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
+    HttpURLConnection urlConn = (HttpsURLConnection) url.openConnection();
 
     System.out.println("sending request...");
     urlConn.setRequestMethod("GET");
