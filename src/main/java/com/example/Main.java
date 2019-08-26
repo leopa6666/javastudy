@@ -99,7 +99,7 @@ public class Main {
         in.close();
     
         //3. 解析して中身をとりだします。
-        Element bookList = document.getDocumentElement();
+        Element bookList = doc.getDocumentElement();
         NodeList nodes = bookList.getElementsByTagName("Library");
         for(int i=0; i<nodes.getLength();i++)
         {
