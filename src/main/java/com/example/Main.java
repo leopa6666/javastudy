@@ -39,6 +39,7 @@ import javax.xml.parsers.DocumentBuilderFactory;//
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;
+import java.nio.charset.StandardCharsets;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -74,19 +75,19 @@ public class Main {
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
 
     //HttpsURLConnection.setDefaultHostnameVerifier(hv);
-    URL url = new
-      URL("http://api.calil.jp/library"+
-          "?appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県");
+    URL url = new URL("http://api.calil.jp/library");
+    OutputStreamWriter out = new OutputStreamWriter(con.getOutputStream(),StandardCharsets.UTF_8);
+    out.write(parameter);
+    out.flush();
+    out.close();
     HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
 
     System.out.println("sending request...");
     urlConn.setRequestMethod("GET");
     urlConn.setAllowUserInteraction(false); // no user interaction
     urlConn.setDoOutput(true); // want to send
-    urlConn.setRequestProperty( "Content-type", "text/xml" );
-    urlConn.setRequestProperty( "accept", "text/xml" );
-    urlConn.setRequestProperty( "authorization", "Basic ");
     Map headerFields = urlConn.getHeaderFields();
+    urlConn.connect();
     System.out.println("header fields are: " + headerFields);
 
     int rspCode = urlConn.getResponseCode();
