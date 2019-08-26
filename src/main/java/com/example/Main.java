@@ -38,6 +38,7 @@ import javax.xml.parsers.DocumentBuilderFactory;//
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.Element;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -98,7 +99,8 @@ public class Main {
         in.close();
     
         //3. 解析して中身をとりだします。
-        NodeList nodes = doc.getElementsByTagName("systemname");
+        Element bookList = document.getDocumentElement();
+        NodeList nodes = bookList.getElementsByTagName("Library");
         for(int i=0; i<nodes.getLength();i++)
         {
             System.out.println(nodes.item(i).getTextContent());
