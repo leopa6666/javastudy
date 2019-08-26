@@ -89,8 +89,7 @@ public class Main {
 
 
     urlConn.connect();
-    System.out.println("header fields are: " + headerFields);
-
+    
     int rspCode = urlConn.getResponseCode();
     if (rspCode == 200) {
 
