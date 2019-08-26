@@ -100,6 +100,7 @@ public class Main {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc = builder.parse(in);
+        System.out.println("doc★"+doc.getDoctype());
         in.close();
     
         //3. 解析して中身をとりだします。
