@@ -99,14 +99,11 @@ public class Main {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc = builder.parse(in);
-        System.out.println("doc★"+doc.getDoctype());
         in.close();
     
         //3. 解析して中身をとりだします。
         Element bookList = doc.getDocumentElement();
-        System.out.println("Child★"+bookList.getFirstChild());
         NodeList nodes = bookList.getElementsByTagName("Library");
-        System.out.println("★"+nodes);
         for(int i=0; i<nodes.getLength();i++)
         {
             System.out.println(nodes.item(i).getTextContent());
