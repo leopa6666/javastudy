@@ -99,7 +99,7 @@ public class Main {
             System.out.println(nodes.item(i).getTextContent());
             liblist.add(nodes.item(i).getTextContent());
         }
-        model.put("nodes",liblist)
+        model.put("nodes",liblist);
     }
     return "index";
   }
