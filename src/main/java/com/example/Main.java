@@ -26,22 +26,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.io.OutputStreamWriter;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;//
 import javax.net.ssl.HttpsURLConnection;
-import java.net.HttpURLConnection;//
 import java.net.URL;
 import java.net.URLEncoder;
-import java.io.BufferedReader;
 import javax.xml.parsers.DocumentBuilder;//
 import javax.xml.parsers.DocumentBuilderFactory;//
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;
-import java.nio.charset.StandardCharsets;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -76,17 +70,10 @@ public class Main {
 
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
     String encodedResult = URLEncoder.encode("埼玉県", "UTF-8");
-    //HttpsURLConnection.setDefaultHostnameVerifier(hv);
     URL url = new URL("https://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref="+ encodedResult);
-    //URL url = new URL("https://api.calil.jp/library");
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
     System.out.println("sending request...");
     urlConn.setRequestMethod("GET");
-    //OutputStreamWriter out = new OutputStreamWriter(urlConn.getOutputStream(),StandardCharsets.UTF_8);
-    //out.write("?appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県");
-    //out.flush();
-    //out.close();
-
 
     urlConn.connect();
     Map headerFields = urlConn.getHeaderFields();
@@ -109,30 +96,6 @@ public class Main {
             System.out.println(nodes.item(i).getTextContent());
         }
     }
-    /*
-    URL url = new URL("http://api.calil.jp/library");
-    System.out.println(url);
-    HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-    conn.setDoOutput(true);
-    conn.connect();
-    //1. パラメーターを送って
-    PrintWriter out = new PrintWriter(conn.getOutputStream());
-    out.write("?appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県");
-    out.flush();
-    out.close();
-    //2. XMLを取得して
-    InputStream in = conn.getInputStream();
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    Document doc = builder.parse(in);
-    in.close();
-
-    //3. 解析して中身をとりだします。
-    NodeList nodes = doc.getElementsByTagName("systemname");
-    for(int i=0; i<nodes.getLength();i++)
-    {
-        System.out.println(nodes.item(i).getTextContent());
-    }*/
     return "index";
   }
 
