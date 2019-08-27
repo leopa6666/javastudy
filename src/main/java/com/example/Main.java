@@ -96,7 +96,7 @@ public class Main {
         for(int i=0; i<nodes.getLength();i++)
         {
             System.out.println(nodes.item(i).getTextContent());
-            model1.put("nodes",nodes.item(i))
+            model1.put("nodes",nodes.item(i));
         }
     }
     return "index";
