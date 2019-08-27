@@ -69,7 +69,7 @@ public class Main {
   }
 
   @RequestMapping("/calilrec")
-  String calil() throws Exception {
+  String calil(Map<String, Object> model) throws Exception {
 
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
     String encodedResult = URLEncoder.encode("埼玉県", "UTF-8");
@@ -84,7 +84,6 @@ public class Main {
 
     int rspCode = urlConn.getResponseCode();
     if (rspCode == 200) {
-        Map<String, Object> model1 = new HashMap<>();
         InputStream in = urlConn.getInputStream();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
