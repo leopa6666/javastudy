@@ -16,9 +16,9 @@
     <script>
         $(function(){
             $('.dropdown').hover(function(){
-                
+                $("ul:not(:animated)", this).slideDown();
             },function(){
-                
+                $("ul.dropdwn_menu",this).slideUp();
             });
         })
 
@@ -34,7 +34,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-info-sign"></span> Getting Started Guides <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="dropdwn_menu" role="menu">
                         <li><a href="https://devcenter.heroku.com/articles/getting-started-with-ruby">Getting Started with Ruby on Heroku</a></li>
                         <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on Heroku</a></li>
                         <li><a href="https://devcenter.heroku.com/articles/getting-started-with-php">Getting Started with PHP on Heroku</a></li>
