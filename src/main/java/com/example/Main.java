@@ -84,7 +84,7 @@ public class Main {
 
     int rspCode = urlConn.getResponseCode();
     if (rspCode == 200) {
-        Map<String, Object> model1 = new Map<String, Object>();
+        Map<String, Object> model1 = new HashMap<>();
         InputStream in = urlConn.getInputStream();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
