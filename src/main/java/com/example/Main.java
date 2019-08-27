@@ -75,10 +75,10 @@ public class Main {
   String calil() throws Exception {
 
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
-
+    String encodedResult = URLEncoder.encode("埼玉県", "UTF-8");
     //HttpsURLConnection.setDefaultHostnameVerifier(hv);
-    //URL url = new URL("https://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref=埼玉県");
-    URL url = new URL("https://api.calil.jp/library");
+    URL url = new URL("https://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref="+ encodedResult);
+    //URL url = new URL("https://api.calil.jp/library");
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
     System.out.println("sending request...");
     urlConn.setRequestMethod("GET");
