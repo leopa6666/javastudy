@@ -1,7 +1,7 @@
 <!doctype html>
 <html th:fragment="layout (template, menu)">
 <head>
-    <title>Java Getting Started on Heroku</title>
+    <title>図書館検索</title>
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
 </head>
@@ -33,16 +33,12 @@
                     </ul>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="navbar-right">
-                    <a href="https://devcenter.heroku.com"><span class="glyphicon glyphicon-book"></span> Heroku Dev Center</a>
-                </li>
-            </ul>
         </div>
     </nav>
     <div th:replace="${template}"/>
 
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-    <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+    <!--script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script-->
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
