@@ -84,7 +84,7 @@ public class Main {
 
     int rspCode = urlConn.getResponseCode();
     if (rspCode == 200) {
-        Map<String, Object> model1 = new HashMap<>();
+        Map<String, Object> model1 = new Map<String, Object>();
         InputStream in = urlConn.getInputStream();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -98,7 +98,7 @@ public class Main {
         for(int i=0; i<nodes.getLength();i++)
         {
             System.out.println(nodes.item(i).getTextContent());
-            model1.put("nodes",nodes.item(i));
+            model1.put("nodes",nodes.item(i).getTextContent());
         }
     }
     return "index";
