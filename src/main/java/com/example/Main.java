@@ -37,6 +37,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;
 
+import javax.servlet.http.*;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -81,7 +82,7 @@ public class Main {
 
     int rspCode = urlConn.getResponseCode();
     if (rspCode == 200) {
-
+        Map<String, Object> model1;
         InputStream in = urlConn.getInputStream();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -91,9 +92,11 @@ public class Main {
         //3. 解析して中身をとりだします。
         Element bookList = doc.getDocumentElement();
         NodeList nodes = bookList.getElementsByTagName("Library");
+
         for(int i=0; i<nodes.getLength();i++)
         {
             System.out.println(nodes.item(i).getTextContent());
+            model1.put("nodes",nodes.item(i))
         }
     }
     return "index";
