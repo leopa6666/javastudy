@@ -93,12 +93,13 @@ public class Main {
         //3. 解析して中身をとりだします。
         Element bookList = doc.getDocumentElement();
         NodeList nodes = bookList.getElementsByTagName("Library");
-
+        ArrayList<String> liblist = new ArrayList<String>();
         for(int i=0; i<nodes.getLength();i++)
         {
             System.out.println(nodes.item(i).getTextContent());
-            model.put("nodes"+i,nodes.item(i).getTextContent());
+            liblist.add(nodes.item(i).getTextContent());
         }
+        model.put("nodes",liblist)
     }
     return "index";
   }
