@@ -115,14 +115,19 @@ public class Main {
             liblist.add(nodes.item(i).getTextContent());
             Node personNode = nodes.item(i);
             NodeList chnodes = nodes.item(i).getChildNodes();
-            System.out.println("chnodes★"+chnodes.item(0));
+            for(int j=0; j<chnodes.getLength();j++){
+              if(i==0){
+                System.out.println("chnodes★"+chnodes.item(j));
+              }
+            }
+            /*
             if(personNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element personElement = (Element)personNode;
                 //System.out.println("personElementformal★"+personElement.getAttributes());
                 NamedNodeMap nodemap = personElement.getAttributes();
                 //System.out.println("nodemapgetLength★"+nodemap.getLength());
                 libmap.put(i, personElement.getAttribute("formal"));
-            }
+            }*/
         }
         model.put("nodes",liblist);
         model.put("address",testlist);
