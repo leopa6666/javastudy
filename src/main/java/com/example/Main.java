@@ -106,12 +106,16 @@ public class Main {
         Element bookList = doc.getDocumentElement();
         NodeList nodes = bookList.getElementsByTagName("Library");
         ArrayList<String> liblist = new ArrayList<String>();
-        Map<int, Object> libmap = new HashMap<>();
+        Map<integer, Object> libmap = new HashMap<>();
         for(int i=0; i<nodes.getLength();i++)
         {
             //System.out.println(nodes.item(i).getTextContent());
             liblist.add(nodes.item(i).getTextContent());
-            libmap.put(i, nodes.getAttribute("formal"));
+            Node personNode = nodes.item(i);
+            if(personNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element personElement = (Element)personNode;
+                libmap.put(i, personElement.getAttribute("formal"));
+            }
         }
         model.put("nodes",liblist);
         model.put("address",testlist);
