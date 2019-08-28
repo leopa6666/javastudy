@@ -20,7 +20,7 @@
           <input type="submit" name="search" value="実行" />
         </form>
         <ul th:each="record : ${libmap}">
-          <li th:text="${record.value}"/>
+          <li th:text="${record.liblist}"/>
         </ul>
     </div>
   </div>
