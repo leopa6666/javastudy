@@ -114,7 +114,7 @@ public class Main {
           Node personNode = nodes.item(i);
           NodeList chnodes = nodes.item(i).getChildNodes();
           for(int j=0; j<chnodes.getLength();j++){
-            String chname = chnodes.item(j).getNodeName()
+            String chname = chnodes.item(j).getNodeName();
             if(chname == "formal" || chname == "url_pc" || chname == "address" || chname == "post" || chname == "category"){
               infomap.put(chname,chnodes.item(j).getTextContent());
             }
