@@ -108,9 +108,9 @@ public class Main {
         Element bookList = doc.getDocumentElement();
         NodeList nodes = bookList.getElementsByTagName("Library");
         ArrayList<Map<String, String>> liblist = new ArrayList<Map<String, String>>();
-        Map<String, String> infomap = new HashMap<>();
         Map<Integer, Object> libmap = new HashMap<>();
         for(int i=0; i<nodes.getLength();i++) {
+          Map<String, String> infomap = new HashMap<>();
           Node personNode = nodes.item(i);
           NodeList chnodes = nodes.item(i).getChildNodes();
           for(int j=0; j<chnodes.getLength();j++){
