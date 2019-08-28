@@ -19,8 +19,8 @@
          </select>
           <input type="submit" name="search" value="実行" />
         </form>
-        <ul th:each="record : ${libmap}">
-          <li th:text="${record.liblist}"/>
+        <ul th:each="record : ${libmap.liblist}">
+          <li th:text="${record}"/>
         </ul>
     </div>
   </div>
