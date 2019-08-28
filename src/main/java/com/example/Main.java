@@ -117,9 +117,10 @@ public class Main {
             NodeList chnodes = nodes.item(i).getChildNodes();
             //System.out.println("chnodesValue★"+chnodes.getFirstChild().getNodeValue());
             for(int j=0; j<chnodes.getLength();j++){
-              if(i==2){
+              if(chnodes.item(j).getNodeName() == "formal"){
+                System.out.println("chnodescontent★"+chnodes.item(j).getTextContent());
                 //System.out.println("chnodes★"+chnodes.item(j));
-                System.out.println("chnodesName★"+chnodes.item(j).getNodeName());
+                //System.out.println("chnodesName★"+chnodes.item(j).getNodeName());
                 //System.out.println("chnodesValue★"+chnodes.item(j).getFirstChild().getNodeValue());
               }
             }
