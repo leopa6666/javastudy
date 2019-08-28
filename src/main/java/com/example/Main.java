@@ -103,6 +103,7 @@ public class Main {
             liblist.add(nodes.item(i).getTextContent());
         }
         model.put("nodes",liblist);
+        model.put("address",testlist);
     }
     return "index";
   }
