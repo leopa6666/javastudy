@@ -15,7 +15,7 @@
       <h3><span class="glyphicon glyphicon-info-sign"></span>都道府県</h3>
         <form action="/calilrec" method="post" >
           <select name="example">
-          <option th:each="op : ${option}" value="${op}"><p th:text="${op}"/></option>
+          <option th:each="op : ${option}" value=th:text="${op}"><p th:text="${op}"/></option>
          </select>
           <input type="submit" name="search" value="実行" />
         </form>
