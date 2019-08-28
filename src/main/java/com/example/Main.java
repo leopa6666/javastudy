@@ -59,7 +59,7 @@ public class Main {
   @Autowired
   private DataSource dataSource;
 
-  public ArrayList<String> testlist = MainConstants.address;
+  public String[] testlist = MainConstants.address;
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
