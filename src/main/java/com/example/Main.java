@@ -107,7 +107,7 @@ public class Main {
         //3. 解析して中身をとりだします。
         Element bookList = doc.getDocumentElement();
         NodeList nodes = bookList.getElementsByTagName("Library");
-        ArrayList<String> liblist = new ArrayList<String>();
+        ArrayList<Object> liblist = new ArrayList<Object>();
         Map<String, String> infomap = new HashMap<>();
         Map<Integer, Object> libmap = new HashMap<>();
         for(int i=0; i<nodes.getLength();i++) {
@@ -119,9 +119,9 @@ public class Main {
               infomap.put(chname,chnodes.item(j).getTextContent());
             }
           }
-          libmap.put(i, infomap);
+          liblist.add(infomap);
         }
-        model.put("libmap",libmap);
+        model.put("libmap",liblist);
     }
     return "index";
   }
