@@ -63,7 +63,9 @@ public class Main {
   @Autowired
   private DataSource dataSource;
 
+
   public static String[] testlist = new String[47];
+
   public static void main(String[] args) throws Exception {
     testlist = MainConstants.address;
     SpringApplication.run(Main.class, args);
@@ -104,13 +106,16 @@ public class Main {
         Element bookList = doc.getDocumentElement();
         NodeList nodes = bookList.getElementsByTagName("Library");
         ArrayList<String> liblist = new ArrayList<String>();
+        Map<int, Object> libmap = new HashMap<>();
         for(int i=0; i<nodes.getLength();i++)
         {
             //System.out.println(nodes.item(i).getTextContent());
             liblist.add(nodes.item(i).getTextContent());
+            libmap.put(i, nodes.getAttribute("formal"));
         }
         model.put("nodes",liblist);
         model.put("address",testlist);
+        model.put("libmap",libmap);
     }
     return "index";
   }
