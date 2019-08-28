@@ -48,6 +48,10 @@ import java.util.Map;
 import java.util.HashMap;
 
 //package com.example.MainConstants;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 
 @Controller
 @SpringBootApplication
@@ -66,8 +70,9 @@ public class Main {
   }
 
   @RequestMapping("/")
-  String index() {
+  String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
     //test
+    request.setAttribute("option", MainConstants.address);
     return "index";
   }
 
