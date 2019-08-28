@@ -1,3 +1,4 @@
+package com.example;
 
 public class MainConstants {
 	// privateコンストラクタでインスタンス生成を抑止
