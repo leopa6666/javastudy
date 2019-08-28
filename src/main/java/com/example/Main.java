@@ -59,9 +59,8 @@ public class Main {
   @Autowired
   private DataSource dataSource;
 
-  public String[] testlist = MainConstants.address;
-
   public static void main(String[] args) throws Exception {
+    public String[] testlist = MainConstants.address;
     SpringApplication.run(Main.class, args);
   }
 
