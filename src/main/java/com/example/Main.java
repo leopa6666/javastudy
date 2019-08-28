@@ -115,7 +115,9 @@ public class Main {
             Node personNode = nodes.item(i);
             if(personNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element personElement = (Element)personNode;
-                System.out.println("formal★"+personElement.getAttributes().getNamedItem("formal"));
+                Node childnode = personElement.getAttributes();
+                System.out.println("getLength★"+personElement.getLength());
+                System.out.println("formal★"+personElement.getAttributes());
                 libmap.put(i, personElement.getAttribute("formal"));
             }
         }
