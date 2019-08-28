@@ -77,10 +77,13 @@ public class Main {
   }
 
   @RequestMapping("/calilrec")
-  String calil(Map<String, Object> model) throws Exception {
+  String calil(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
 
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
-    String encodedResult = URLEncoder.encode("埼玉県", "UTF-8");
+    // ①ID入力画面で入力されたIDを取得
+    String input_address = request.getParameter("example");
+    
+    String encodedResult = URLEncoder.encode(input_address, "UTF-8");
     URL url = new URL("https://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref="+ encodedResult);
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
     System.out.println("List★"+ testlist);
