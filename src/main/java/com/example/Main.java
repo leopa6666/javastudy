@@ -118,7 +118,8 @@ public class Main {
             //System.out.println("chnodesValue★"+chnodes.getFirstChild().getNodeValue());
             for(int j=0; j<chnodes.getLength();j++){
               if(i==2){
-                System.out.println("chnodes★"+chnodes.item(j));
+                //System.out.println("chnodes★"+chnodes.item(j));
+                System.out.println("chnodesName★"+chnodes.item(j).getNodeName());
                 //System.out.println("chnodesValue★"+chnodes.item(j).getFirstChild().getNodeValue());
               }
             }
