@@ -86,7 +86,7 @@ public class Main {
     String encodedResult = URLEncoder.encode(input_address, "UTF-8");
     URL url = new URL("https://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref="+ encodedResult);
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
-    System.out.println("List★"+ testlist);
+    System.out.println("input_address★"+ input_address);
     urlConn.setRequestMethod("GET");
 
     urlConn.connect();
