@@ -2,7 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
 
 <body>
-
+<style>
+  .formal_title {
+    font-size: 30px;
+  }
+</style>
 <div class="jumbotron text-center">
   <div class="container">
     <h1>図書館 検索</h1>
@@ -21,10 +25,9 @@
         </form>
         <div th:each="record : ${libmap}">
           <div th:each="map : ${record}">
-            <span th:text="${map.key}">:</span>
+            <span th:class="${map.key'}+'_title"></span>
             <span th:text="${map.value}"></span>
           </div>
-
         </div>
     </div>
   </div>
