@@ -71,7 +71,6 @@ public class Main {
 
   @RequestMapping("/")
   String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    //test
     request.setAttribute("option", MainConstants.address);
     return "index";
   }
@@ -80,13 +79,13 @@ public class Main {
   String calil(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
 
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
-    // ①ID入力画面で入力されたIDを取得
+    //選択した都道府県
     String input_address = request.getParameter("example");
+    request.setAttribute("option", MainConstants.address);
     
     String encodedResult = URLEncoder.encode(input_address, "UTF-8");
     URL url = new URL("https://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref="+ encodedResult);
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
-    System.out.println("input_address★"+ input_address);
     urlConn.setRequestMethod("GET");
 
     urlConn.connect();
