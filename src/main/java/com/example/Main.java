@@ -48,6 +48,9 @@ import java.util.Map;
 import java.util.HashMap;
 
 
+import MainConstants;
+
+
 @Controller
 @SpringBootApplication
 public class Main {
@@ -57,6 +60,8 @@ public class Main {
 
   @Autowired
   private DataSource dataSource;
+
+  public ArrayList<String> testlist = MainConstants.address;
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
@@ -75,12 +80,12 @@ public class Main {
     String encodedResult = URLEncoder.encode("埼玉県", "UTF-8");
     URL url = new URL("https://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref="+ encodedResult);
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
-    System.out.println("sending request...");
+    System.out.println("List★"+ testlist);
     urlConn.setRequestMethod("GET");
 
     urlConn.connect();
     Map headerFields = urlConn.getHeaderFields();
-    System.out.println("header fields are: " + headerFields);
+    //System.out.println("header fields are: " + headerFields);
 
     int rspCode = urlConn.getResponseCode();
     if (rspCode == 200) {
