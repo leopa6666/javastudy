@@ -115,7 +115,7 @@ public class Main {
             liblist.add(nodes.item(i).getTextContent());
             Node personNode = nodes.item(i);
             NodeList chnodes = nodes.item(i).getChildNodes();
-            System.out.println("chnodes★"+chnodes.getLength());
+            System.out.println("chnodes★"+chnodes.item(0));
             if(personNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element personElement = (Element)personNode;
                 //System.out.println("personElementformal★"+personElement.getAttributes());
