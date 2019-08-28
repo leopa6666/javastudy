@@ -21,7 +21,8 @@
         </form>
         <div th:each="record : ${libmap}">
           <div th:each="map : ${record}">
-            <span th:text="${map}"></span>
+            <span th:text="${map.key}">:</span>
+            <span th:text="${map.value}"></span>
           </div>
 
         </div>
