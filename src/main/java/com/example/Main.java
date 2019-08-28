@@ -116,9 +116,9 @@ public class Main {
             Node personNode = nodes.item(i);
             NodeList chnodes = nodes.item(i).getChildNodes();
             for(int j=0; j<chnodes.getLength();j++){
-              if(i==0){
+              if(i==2){
                 System.out.println("chnodes★"+chnodes.item(j));
-                System.out.println("chnodes★"+chnodes.item(j).getNodeValue());
+                System.out.println("chnodesValue★"+chnodes.item(j).getNodeValue());
               }
             }
             /*
