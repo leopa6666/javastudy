@@ -116,7 +116,6 @@ public class Main {
             Node personNode = nodes.item(i);
             if(personNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element personElement = (Element)personNode;
-                System.out.println("personElementgetLength★"+personElement.getLength());
                 System.out.println("personElementformal★"+personElement.getAttributes());
                 NamedNodeMap nodemap = personElement.getAttributes();
                 System.out.println("nodemapgetLength★"+nodemap.getLength());
