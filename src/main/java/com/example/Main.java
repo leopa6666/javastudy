@@ -109,32 +109,24 @@ public class Main {
         NodeList nodes = bookList.getElementsByTagName("Library");
         ArrayList<String> liblist = new ArrayList<String>();
         Map<Integer, Object> libmap = new HashMap<>();
-        for(int i=0; i<nodes.getLength();i++)
-        {
-            //System.out.println(nodes.item(i).getTextContent());
-            liblist.add(nodes.item(i).getTextContent());
-            Node personNode = nodes.item(i);
-            NodeList chnodes = nodes.item(i).getChildNodes();
-            //System.out.println("chnodesValue★"+chnodes.getFirstChild().getNodeValue());
-            for(int j=0; j<chnodes.getLength();j++){
-              if(chnodes.item(j).getNodeName() == "formal"){
-                System.out.println("chnodescontent★"+chnodes.item(j).getTextContent());
-                //System.out.println("chnodes★"+chnodes.item(j));
-                //System.out.println("chnodesName★"+chnodes.item(j).getNodeName());
-                //System.out.println("chnodesValue★"+chnodes.item(j).getFirstChild().getNodeValue());
-              }
+        for(int i=0; i<nodes.getLength();i++) {
+          Node personNode = nodes.item(i);
+          NodeList chnodes = nodes.item(i).getChildNodes();
+          for(int j=0; j<chnodes.getLength();j++){
+            if(chnodes.item(j).getNodeName() == "formal"){
+              liblist.add(chnodes.item(j).getTextContent());
+            }else if(chnodes.item(j).getNodeName() == "url_pc"){
+              liblist.add(chnodes.item(j).getTextContent());
+            }else if(chnodes.item(j).getNodeName() == "address"){
+              liblist.add(chnodes.item(j).getTextContent());
+            }else if(chnodes.item(j).getNodeName() == "post"){
+              liblist.add(chnodes.item(j).getTextContent());
+            }else if(chnodes.item(j).getNodeName() == "category"){
+              liblist.add(chnodes.item(j).getTextContent());
             }
-            /*
-            if(personNode.getNodeType() == Node.ELEMENT_NODE) {
-                Element personElement = (Element)personNode;
-                //System.out.println("personElementformal★"+personElement.getAttributes());
-                NamedNodeMap nodemap = personElement.getAttributes();
-                //System.out.println("nodemapgetLength★"+nodemap.getLength());
-                libmap.put(i, personElement.getAttribute("formal"));
-            }*/
+          }
+          libmap.put(i, liblist);
         }
-        model.put("nodes",liblist);
-        model.put("address",testlist);
         model.put("libmap",libmap);
     }
     return "index";
