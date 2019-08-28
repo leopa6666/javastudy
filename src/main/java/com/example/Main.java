@@ -82,7 +82,7 @@ public class Main {
     //選択した都道府県
     String input_address = request.getParameter("example");
     request.setAttribute("option", MainConstants.address);
-    
+
     String encodedResult = URLEncoder.encode(input_address, "UTF-8");
     URL url = new URL("https://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref="+ encodedResult);
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
@@ -106,7 +106,7 @@ public class Main {
         ArrayList<String> liblist = new ArrayList<String>();
         for(int i=0; i<nodes.getLength();i++)
         {
-            System.out.println(nodes.item(i).getTextContent());
+            //System.out.println(nodes.item(i).getTextContent());
             liblist.add(nodes.item(i).getTextContent());
         }
         model.put("nodes",liblist);
