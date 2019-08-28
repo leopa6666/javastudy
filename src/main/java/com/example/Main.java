@@ -108,24 +108,18 @@ public class Main {
         Element bookList = doc.getDocumentElement();
         NodeList nodes = bookList.getElementsByTagName("Library");
         ArrayList<String> liblist = new ArrayList<String>();
+        Map<String, String> infomap = new HashMap<>();
         Map<Integer, Object> libmap = new HashMap<>();
         for(int i=0; i<nodes.getLength();i++) {
           Node personNode = nodes.item(i);
           NodeList chnodes = nodes.item(i).getChildNodes();
           for(int j=0; j<chnodes.getLength();j++){
-            if(chnodes.item(j).getNodeName() == "formal"){
-              liblist.add(chnodes.item(j).getTextContent());
-            }else if(chnodes.item(j).getNodeName() == "url_pc"){
-              liblist.add(chnodes.item(j).getTextContent());
-            }else if(chnodes.item(j).getNodeName() == "address"){
-              liblist.add(chnodes.item(j).getTextContent());
-            }else if(chnodes.item(j).getNodeName() == "post"){
-              liblist.add(chnodes.item(j).getTextContent());
-            }else if(chnodes.item(j).getNodeName() == "category"){
-              liblist.add(chnodes.item(j).getTextContent());
+            String chname = chnodes.item(j).getNodeName()
+            if(chname == "formal" || chname == "url_pc" || chname == "address" || chname == "post" || chname == "category"){
+              infomap.put(chname,chnodes.item(j).getTextContent());
             }
           }
-          libmap.put(i, liblist);
+          libmap.put(i, infomap);
         }
         model.put("libmap",libmap);
     }
