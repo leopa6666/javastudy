@@ -47,10 +47,6 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 
-
-import MainConstants;
-
-
 @Controller
 @SpringBootApplication
 public class Main {
