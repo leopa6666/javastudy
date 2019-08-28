@@ -118,6 +118,7 @@ public class Main {
             for(int j=0; j<chnodes.getLength();j++){
               if(i==0){
                 System.out.println("chnodes★"+chnodes.item(j));
+                System.out.println("chnodes★"+chnodes.item(j).getNodeValue());
               }
             }
             /*
