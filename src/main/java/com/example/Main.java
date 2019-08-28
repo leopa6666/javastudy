@@ -35,6 +35,7 @@ import javax.xml.parsers.DocumentBuilderFactory;//
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
 import javax.servlet.http.*;
@@ -106,7 +107,7 @@ public class Main {
         Element bookList = doc.getDocumentElement();
         NodeList nodes = bookList.getElementsByTagName("Library");
         ArrayList<String> liblist = new ArrayList<String>();
-        Map<integer, Object> libmap = new HashMap<>();
+        Map<Integer, Object> libmap = new HashMap<>();
         for(int i=0; i<nodes.getLength();i++)
         {
             //System.out.println(nodes.item(i).getTextContent());
