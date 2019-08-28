@@ -37,6 +37,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 import javax.servlet.http.*;
 import javax.sql.DataSource;
@@ -116,8 +117,10 @@ public class Main {
             if(personNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element personElement = (Element)personNode;
                 Node childnode = personElement.getAttributes();
-                System.out.println("getLength★"+personElement.getLength());
-                System.out.println("formal★"+personElement.getAttributes());
+                System.out.println("personElementgetLength★"+personElement.getLength());
+                System.out.println("personElementformal★"+personElement.getAttributes());
+                NamedNodeMap nodemap = personElement.getAttributes();
+                System.out.println("nodemapgetLength★"+nodemap.getLength());
                 libmap.put(i, personElement.getAttribute("formal"));
             }
         }
