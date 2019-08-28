@@ -114,11 +114,13 @@ public class Main {
             //System.out.println(nodes.item(i).getTextContent());
             liblist.add(nodes.item(i).getTextContent());
             Node personNode = nodes.item(i);
+            NodeList chnodes = nodes.item(i).getChildNodes();
+            System.out.println("chnodes★"+chnodes.getLength());
             if(personNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element personElement = (Element)personNode;
-                System.out.println("personElementformal★"+personElement.getAttributes());
+                //System.out.println("personElementformal★"+personElement.getAttributes());
                 NamedNodeMap nodemap = personElement.getAttributes();
-                System.out.println("nodemapgetLength★"+nodemap.getLength());
+                //System.out.println("nodemapgetLength★"+nodemap.getLength());
                 libmap.put(i, personElement.getAttribute("formal"));
             }
         }
