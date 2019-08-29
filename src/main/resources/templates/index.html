@@ -6,11 +6,21 @@
   .formal_title {
     font-size: 30px;
   }
-  .libmap{
+  .url_pc_title {
+    color: blue;
+    text-decoration:underline;
+  }
+  .libmap {
+    margin: 5px 0px;
     padding:5px;
     border:solid 1px #000;
   }
 </style>
+<script>
+    $('.url_pc_title').on('click', function(value) {
+      window.open(value, '_blank'); // 新しいタブを開き、ページを表示
+    })
+</script>
 <div class="jumbotron text-center">
   <div class="container">
     <h1>図書館 検索</h1>
