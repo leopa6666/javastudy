@@ -21,26 +21,12 @@
     $('.url_pc_title').on('click', function(value) {
       window.open(value.currentTarget.innerText, '_blank'); // 新しいタブを開き、ページを表示
     });
-    // Geolocation APIに対応している
-    if( navigator.geolocation )
-    {
-      // 現在位置を取得できる場合の処理
-      alert( "あなたの端末では、現在位置を取得することができます。" ) ;
-    }
 
-    // Geolocation APIに対応していない
-    else
-    {
-      // 現在位置を取得できない場合の処理
-      alert( "あなたの端末では、現在位置を取得できません。" ) ;
-    }
-
-    function getposition(){
-    var position = navigator.geolocation.getCurrentPosition();
+    function getposition(position){
     var lat_text = "緯度:" + position.coords.latitude;
     var lon_text = "経度:" + position.coords.longitude;
     }
-    getposition();
+    navigator.geolocation.getCurrentPosition(getposition());
   })
 </script>
 <div class="jumbotron text-center">
