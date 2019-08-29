@@ -6,6 +6,10 @@
   .formal_title {
     font-size: 30px;
   }
+  .libmap{
+    padding:5px;
+    border:solid 1px #000;
+  }
 </style>
 <div class="jumbotron text-center">
   <div class="container">
@@ -23,10 +27,9 @@
          </select>
           <input type="submit" name="search" value="実行" />
         </form>
-        <div th:each="record : ${libmap}">
+        <div th:each="record : ${libmap}" class="libmap">
           <div th:each="map : ${record}">
-            <span th:class="${map.key}+'_title'"></span>
-            <span th:text="${map.value}"></span>
+            <span th:class="${map.key}+'_title'" th:text="${map.value}"></span>
           </div>
         </div>
     </div>
