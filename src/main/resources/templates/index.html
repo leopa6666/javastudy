@@ -38,12 +38,13 @@
 <div class="container">
   <div class="row">
     <div>
-      <h3><span class="glyphicon glyphicon-info-sign"></span>都道府県</h3>
+      <h3><span class="glyphicon glyphicon-info-sign"></span>検索条件</h3>
         <form action="/calilrec" method="post" >
+          <span>都道府県:</span>
           <select name="example">
-            <option th:each="op : ${option}" ><p th:text="${op}"></p> </option>
+            <option th:each="op : ${option}" ><p th:text="${op}"></p></option>
           </select>
-
+          
           <input type="submit" name="search" value="実行" />
         </form>
         <div th:each="record : ${libmap}" class="libmap">
