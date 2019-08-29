@@ -21,6 +21,11 @@
     $('.url_pc_title').on('click', function(value) {
       window.open(value.currentTarget.innerText, '_blank'); // 新しいタブを開き、ページを表示
     });
+    function getposition(){
+    var position = navigator.geolocation.getCurrentPosition();
+    var lat_text = "緯度:" + position.coords.latitude;
+    var lon_text = "経度:" + position.coords.longitude;
+    }
   })
 </script>
 <div class="jumbotron text-center">
@@ -35,8 +40,9 @@
       <h3><span class="glyphicon glyphicon-info-sign"></span>都道府県</h3>
         <form action="/calilrec" method="post" >
           <select name="example">
-          <option th:each="op : ${option}" ><p th:text="${op}"></p> </option>
-         </select>
+            <option th:each="op : ${option}" ><p th:text="${op}"></p> </option>
+          </select>
+
           <input type="submit" name="search" value="実行" />
         </form>
         <div th:each="record : ${libmap}" class="libmap">
