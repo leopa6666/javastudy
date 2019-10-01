@@ -78,7 +78,7 @@ public class Main {
   @RequestMapping("/")
   String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
     request.setAttribute("option", MainConstants.address);
-    input_Sample.getInputAddress();
+    //input_Sample.getInputAddress();
     return "index";
   }
 
@@ -88,7 +88,7 @@ public class Main {
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
     //選択した都道府県
     String input_address = request.getParameter("example");
-    input_Sample.getInputAddress(input_address);
+    //input_Sample.getInputAddress(input_address);
     request.setAttribute("option", MainConstants.address);
 
     String encodedResult = URLEncoder.encode(input_address, "UTF-8");
