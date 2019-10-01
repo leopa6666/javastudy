@@ -71,7 +71,7 @@ public class Main {
 
   public static void main(String[] args) throws Exception {
     testlist = MainConstants.address;
-    input_Sample.setInputAddress('')
+    input_Sample.setInputAddress("")
     SpringApplication.run(Main.class, args);
   }
 
