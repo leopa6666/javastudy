@@ -89,7 +89,7 @@ public class Main {
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
     //選択した都道府県
     String input_address = request.getParameter("example");
-    input_Sample.getInputAddress(input_address);
+    input_Sample.setInputAddress(input_address);
     request.setAttribute("option", MainConstants.address);
 
     String encodedResult = URLEncoder.encode(input_address, "UTF-8");
