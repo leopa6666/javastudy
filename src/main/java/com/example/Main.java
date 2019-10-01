@@ -67,7 +67,7 @@ public class Main {
 
   //都道府県
   public static String[] testlist = new String[47];
-  public static input_Sample;
+  public Sample input_Sample;
   
   public static void main(String[] args) throws Exception {
     testlist = MainConstants.address;
