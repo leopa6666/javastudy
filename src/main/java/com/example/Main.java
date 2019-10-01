@@ -65,8 +65,9 @@ public class Main {
   @Autowired
   private DataSource dataSource;
 
-
+  //都道府県
   public static String[] testlist = new String[47];
+  Sample input_Sample = new Sample();
 
   public static void main(String[] args) throws Exception {
     testlist = MainConstants.address;
