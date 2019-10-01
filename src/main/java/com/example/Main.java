@@ -71,14 +71,14 @@ public class Main {
   
   public static void main(String[] args) throws Exception {
     testlist = MainConstants.address;
-    input_Sample = new Sample();
-    input_Sample.setInputAddress("");
     SpringApplication.run(Main.class, args);
   }
 
   @RequestMapping("/")
   String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
     request.setAttribute("option", MainConstants.address);
+    input_Sample = new Sample();
+    input_Sample.setInputAddress("");
     //input_Sample.getInputAddress();
     return "index";
   }
