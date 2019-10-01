@@ -1,5 +1,5 @@
 package com.example;
-public class Sample {
+class Sample {
   private String input_address;
 
   public String getInputAddress() {
