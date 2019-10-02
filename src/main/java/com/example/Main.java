@@ -65,11 +65,9 @@ public class Main {
   @Autowired
   private DataSource dataSource;
 
-  public static Sample input_Sample;
+  public static Sample input_Sample = new Sample();
   
   public static void main(String[] args) throws Exception {
-    input_Sample = new Sample();
-    input_Sample.setInputAddress("");
     SpringApplication.run(Main.class, args);
   }
 
