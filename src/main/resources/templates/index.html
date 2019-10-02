@@ -49,7 +49,7 @@
             <option th:each="op : ${option}" ><p th:text="${op}" ></p></option>
           </select>
           <input type="submit" name="search" value="実行" />
-          <p th:text="${input_info}" ></p>
+          <p th:text="${input_info.input_address}" ></p>
         </form>
         <div th:each="record : ${libmap}" class="libmap">
           <div th:each="map : ${record}">
