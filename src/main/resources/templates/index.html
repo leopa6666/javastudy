@@ -46,7 +46,7 @@
             <option th:each="op : ${option}" ><p th:text="${op}" th:text="${op}.equals(${input_Sample.getInputAddress()}) ? 'selected'"></p></option>
             <option th:each="op : ${option}" ><p th:text="${op}" ></p></option>
             -->
-            <option th:each="op : ${option}" th:text="${op.equals('東京都')} ? 'selected' : '' "><p th:text="${op}" ></p></option>
+            <option th:each="op : ${option}" selected=th:text="${op.equals('東京都')} ? 'selected' : '' "><p th:text="${op}" ></p></option>
           </select>
           <input type="submit" name="search" value="実行" />
         </form>
