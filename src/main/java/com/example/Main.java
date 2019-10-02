@@ -57,7 +57,6 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @Controller
-@Scope("prototype")
 @SpringBootApplication
 public class Main {
 
