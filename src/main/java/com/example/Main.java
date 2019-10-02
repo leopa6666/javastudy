@@ -79,7 +79,7 @@ public class Main {
   @RequestMapping("/")
   String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
     request.setAttribute("option", MainConstants.address);
-    input_Sample.getInputAddress();
+    request.setAttribute("input_info", input_Sample);
     return "index";
   }
 
@@ -90,6 +90,7 @@ public class Main {
     //選択した都道府県
     String input_address = request.getParameter("example");
     input_Sample.setInputAddress(input_address);
+    request.setAttribute("input_info", input_Sample);
     request.setAttribute("option", MainConstants.address);
 
     String encodedResult = URLEncoder.encode(input_address, "UTF-8");
