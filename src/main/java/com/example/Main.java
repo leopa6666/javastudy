@@ -56,6 +56,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @Controller
+@Scope("prototype")
 @SpringBootApplication
 public class Main {
 
@@ -65,6 +66,7 @@ public class Main {
   @Autowired
   private DataSource dataSource;
 
+  @Autowired
   public static Sample input_Sample = new Sample();
   
   public static void main(String[] args) throws Exception {
