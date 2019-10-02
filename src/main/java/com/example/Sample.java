@@ -1,4 +1,8 @@
 package com.example;
+
+import org.springframework.context.annotation.Component;
+import org.springframework.context.annotation.Scope;
+
 @Component
 @Scope(value = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Sample {
