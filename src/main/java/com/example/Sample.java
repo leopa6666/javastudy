@@ -1,9 +1,8 @@
 package com.example;
-
+@Component
+@Scope(value = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Sample {
 
-  @Component
-  @Scope(value = "prototype")
   private String input_address;
 
   public String getInputAddress() {
