@@ -1,6 +1,7 @@
 package com.example;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.WebApplicationContext;
 
