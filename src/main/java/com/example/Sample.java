@@ -1,4 +1,7 @@
 package com.example;
+
+@Component
+@Scope(value = "prototype")
 public class Sample {
   private String input_address;
 
