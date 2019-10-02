@@ -1,5 +1,5 @@
 package com.example;
-
+import org.springframework.context.annotation.Bean;
 @Scope("prototype")
 public class Sample {
 
