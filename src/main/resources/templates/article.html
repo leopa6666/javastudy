@@ -31,15 +31,27 @@
 </script>
 <div class="jumbotron text-center">
   <div class="container">
-    <h1>Java API呼び出しサンプル集</h1>
+    <h1>図書館 検索</h1>
+    <p>近隣の図書館検索お試し版</p>
   </div>
 </div>
 <div class="container">
   <div class="row">
     <div>
-      <article>
-          <h3><span class="glyphicon glyphicon-info-sign"></span><a href="./content">図書館検索</a></h3>
-      </article>
+      <h3><span class="glyphicon glyphicon-info-sign"></span>検索条件</h3>
+        <form action="/calilrec" method="post" >
+          <span>都道府県:</span>
+          <select name="example">
+            <option th:each="op : ${option}" th:selected="${input_info.getInputAddress() == op }"><p th:text="${op}" ></p></option>
+          </select>
+          <input type="submit" name="search" value="実行" />
+        </form>
+        <p th:text="${input_Sample}"></p>
+        <div th:each="record : ${libmap}" class="libmap">
+          <div th:each="map : ${record}">
+            <span th:class="${map.key}+'_title'" th:text="${map.value}"></span>
+          </div>
+        </div>
     </div>
   </div>
 </div>
