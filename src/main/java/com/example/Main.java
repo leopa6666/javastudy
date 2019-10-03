@@ -78,7 +78,7 @@ public class Main {
     return "index";
   }
   @RequestMapping("/content")
-  String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
+  String article(HttpServletRequest request, HttpServletResponse response) throws Exception {
     request.setAttribute("option", MainConstants.address);//都道府県
     request.setAttribute("input_info", input_Sample);
     return "article";
