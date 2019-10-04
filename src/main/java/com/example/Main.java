@@ -132,7 +132,7 @@ public class Main {
           }
           liblist.add(infomap);
         }
-        model.put("libmap",liblist);
+        request.setAttribute("libmap",liblist);
     }
     return "article";
   }
