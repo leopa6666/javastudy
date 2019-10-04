@@ -87,7 +87,7 @@ public class Main {
   }
 
   //@RequestMapping("/calilrec")
-  @RequestMapping(path = "/content", method = RequestMethod.post)
+  @RequestMapping(path = "/content", method = RequestMethod.POST)
   String calil(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
 
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
