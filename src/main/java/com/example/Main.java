@@ -77,14 +77,16 @@ public class Main {
   String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
     return "index";
   }
-  @RequestMapping("/content")
+  //@RequestMapping("/content")
+  @RequestMapping(path = "/content", method = RequestMethod.GET)
   String article(HttpServletRequest request, HttpServletResponse response) throws Exception {
     request.setAttribute("option", MainConstants.address);//都道府県
     request.setAttribute("input_info", input_Sample);
     return "article";
   }
 
-  @RequestMapping("/calilrec")
+  //@RequestMapping("/calilrec")
+  @RequestMapping(path = "/content", method = RequestMethod.post)
   String calil(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
 
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
@@ -130,7 +132,7 @@ public class Main {
         }
         model.put("libmap",liblist);
     }
-    return "index";
+    return "article";
   }
 
   @RequestMapping("/db")
