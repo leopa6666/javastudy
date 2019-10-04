@@ -55,7 +55,6 @@ public class LibSearch_ctrl {
         }
         request.setAttribute("libmap",liblist);
       }
-      return "article";
-    }
+    return "article";
   }
 }
