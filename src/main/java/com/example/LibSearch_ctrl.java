@@ -6,6 +6,8 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.stereotype.Controller;
 import javax.servlet.http.HttpServletRequest;
 
+import org.w3c.dom.*;
+
 @Controller
 @Scope("prototype")
 public class LibSearch_ctrl {
