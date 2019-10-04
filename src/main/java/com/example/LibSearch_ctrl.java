@@ -25,7 +25,8 @@ public class LibSearch_ctrl {
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
     //選択した都道府県セット
     String input_address = request.getParameter("example");
-    Sample input_Sample = new Sample();
+    //Sample input_Sample = new Sample();
+    Sample input_Sample = request.getAttribute("input_info");
     input_Sample.setInputAddress(input_address);
     //Modelへ
     request.setAttribute("input_info", input_Sample);

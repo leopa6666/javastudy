@@ -28,28 +28,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.context.annotation.Scope;
 
-import java.io.InputStream;
-import javax.net.ssl.HttpsURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import javax.xml.parsers.DocumentBuilder;//
-import javax.xml.parsers.DocumentBuilderFactory;//
-
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-
 import javax.servlet.http.*;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
 
 //package com.example.MainConstants;
 import javax.servlet.http.HttpServlet;
@@ -66,9 +50,6 @@ public class Main {
 
   @Autowired
   private DataSource dataSource;
-
-  @Autowired
-  public static Sample input_Sample;
   
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
@@ -81,7 +62,7 @@ public class Main {
 
   @RequestMapping(path = "/content", method = RequestMethod.GET)
   String getarticle(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    input_Sample = new Sample();
+    Sample input_Sample = new Sample();
     request.setAttribute("option", MainConstants.address);//都道府県
     request.setAttribute("input_info", input_Sample);
     return "article";
@@ -93,57 +74,7 @@ public class Main {
     return libs_ctrl.post_libsearch(request);
 
   }
-/* 
-  @RequestMapping(path = "/content", method = RequestMethod.POST)
-  String calil(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
 
-    System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
-    //選択した都道府県セット
-    String input_address = request.getParameter("example");
-    input_Sample.setInputAddress(input_address);
-    //Modelへ
-    request.setAttribute("input_info", input_Sample);
-    request.setAttribute("option", MainConstants.address);
-
-    //リクエスト start
-    String encodedResult = URLEncoder.encode(input_address, "UTF-8");
-    URL url = new URL("https://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref="+ encodedResult);
-    HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
-    urlConn.setRequestMethod("GET");
-    urlConn.connect();
-    //Map headerFields = urlConn.getHeaderFields();
-    //リクエスト end
-
-    int rspCode = urlConn.getResponseCode();
-    if (rspCode == 200) {
-        InputStream in = urlConn.getInputStream();
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(in);
-        in.close();
-    
-        //3. 解析して中身をとりだします。
-        Element bookList = doc.getDocumentElement();
-        NodeList nodes = bookList.getElementsByTagName("Library");
-        ArrayList<Map<String, String>> liblist = new ArrayList<Map<String, String>>();
-        Map<Integer, Object> libmap = new HashMap<>();
-        for(int i=0; i<nodes.getLength();i++) {
-          Map<String, String> infomap = new HashMap<>();
-          Node personNode = nodes.item(i);
-          NodeList chnodes = nodes.item(i).getChildNodes();
-          for(int j=0; j<chnodes.getLength();j++){
-            String chname = chnodes.item(j).getNodeName();
-            if(chname == "formal" || chname == "url_pc" || chname == "post" || chname == "address" || chname == "tel" || chname == "category"){
-              infomap.put(chname,chnodes.item(j).getTextContent());
-            }
-          }
-          liblist.add(infomap);
-        }
-        request.setAttribute("libmap",liblist);
-    }
-    return "article";
-  }
-*/
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
