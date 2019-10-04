@@ -91,20 +91,21 @@ public class Main {
   String calil(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
 
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
-    //選択した都道府県
+    //選択した都道府県セット
     String input_address = request.getParameter("example");
     input_Sample.setInputAddress(input_address);
+    //Modelへ
     request.setAttribute("input_info", input_Sample);
     request.setAttribute("option", MainConstants.address);
 
+    //リクエスト start
     String encodedResult = URLEncoder.encode(input_address, "UTF-8");
     URL url = new URL("https://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref="+ encodedResult);
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
     urlConn.setRequestMethod("GET");
-
     urlConn.connect();
-    Map headerFields = urlConn.getHeaderFields();
-    //System.out.println("header fields are: " + headerFields);
+    //Map headerFields = urlConn.getHeaderFields();
+    //リクエスト end
 
     int rspCode = urlConn.getResponseCode();
     if (rspCode == 200) {
