@@ -80,13 +80,20 @@ public class Main {
   }
 
   @RequestMapping(path = "/content", method = RequestMethod.GET)
-  String article(HttpServletRequest request, HttpServletResponse response) throws Exception {
+  String getarticle(HttpServletRequest request, HttpServletResponse response) throws Exception {
     input_Sample = new Sample();
     request.setAttribute("option", MainConstants.address);//都道府県
     request.setAttribute("input_info", input_Sample);
     return "article";
   }
 
+  @RequestMapping(path = "/content", method = RequestMethod.POST)
+  String setarticle(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
+    LibSearch_ctrl libs_ctrl = new LibSearch_ctrl();
+    return libs_ctrl.post_libsearch(request);
+
+  }
+/* 
   @RequestMapping(path = "/content", method = RequestMethod.POST)
   String calil(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
 
@@ -136,7 +143,7 @@ public class Main {
     }
     return "article";
   }
-
+*/
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
