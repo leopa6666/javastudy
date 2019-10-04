@@ -68,7 +68,7 @@ public class Main {
   private DataSource dataSource;
 
   @Autowired
-  public static Sample input_Sample = new Sample();
+  public static Sample input_Sample;
   
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
@@ -78,15 +78,15 @@ public class Main {
   String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
     return "index";
   }
-  //@RequestMapping("/content")
+
   @RequestMapping(path = "/content", method = RequestMethod.GET)
   String article(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    input_Sample = new Sample();
     request.setAttribute("option", MainConstants.address);//都道府県
     request.setAttribute("input_info", input_Sample);
     return "article";
   }
 
-  //@RequestMapping("/calilrec")
   @RequestMapping(path = "/content", method = RequestMethod.POST)
   String calil(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
 
