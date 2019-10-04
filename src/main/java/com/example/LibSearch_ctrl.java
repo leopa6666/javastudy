@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 @Scope("prototype")
 public class LibSearch_ctrl {
 
-  String post_libsearch(HttpServletRequest request){
+  String post_libsearch(HttpServletRequest request) throws Exception {
     
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
     //選択した都道府県セット
