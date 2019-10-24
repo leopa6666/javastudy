@@ -65,6 +65,7 @@ public class Main {
   String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no) throws Exception {
     System.out.println(content_no);
     if(content_no.equals(1)){
+      System.out.println("市"));
       LibSerchResource input_SerchResource = new LibSerchResource();
       request.setAttribute("option", MainConstants.address);//都道府県
       request.setAttribute("input_info", input_SerchResource);
