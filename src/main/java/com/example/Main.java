@@ -63,7 +63,7 @@ public class Main {
 
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
   String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no) throws Exception {
-
+    System.out.println(content_no);
     if(content_no == "1"){
       LibSerchResource input_SerchResource = new LibSerchResource();
       request.setAttribute("option", MainConstants.address);//都道府県
