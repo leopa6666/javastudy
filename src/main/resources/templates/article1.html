@@ -46,7 +46,7 @@
           </select>
           <input type="submit" name="search" value="実行" />
         </form>
-        <p th:text="${input_Sample}"></p>
+        <p th:text="${input_SerchResource}"></p>
         <div th:each="record : ${libmap}" class="libmap">
           <div th:each="map : ${record}">
             <span th:class="${map.key}+'_title'" th:text="${map.value}"></span>

@@ -7,7 +7,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @Component
 @Scope("prototype")
-public class Sample {
+public class LibSerchResource {
 
   private String input_address;
 

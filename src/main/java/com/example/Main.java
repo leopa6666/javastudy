@@ -64,10 +64,14 @@ public class Main {
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
   String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no) throws Exception {
 
-    Sample input_Sample = new Sample();
-    request.setAttribute("option", MainConstants.address);//都道府県
-    request.setAttribute("input_info", input_Sample);
-    return content_no;
+    if(content_no == "1"){
+      LibSerchResource input_SerchResource = new LibSerchResource();
+      request.setAttribute("option", MainConstants.address);//都道府県
+      request.setAttribute("input_info", input_SerchResource);
+    }else if(content_no == "2"){
+
+    }
+    return "article" + content_no;
   }
 
   @RequestMapping(path = "/content", method = RequestMethod.POST)
