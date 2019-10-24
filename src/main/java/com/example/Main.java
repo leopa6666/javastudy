@@ -60,12 +60,13 @@ public class Main {
     return "index";
   }
 
-  @RequestMapping(path = "/content", method = RequestMethod.GET)
-  String getarticle(HttpServletRequest request, HttpServletResponse response) throws Exception {
+  @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
+  String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no) throws Exception {
+
     Sample input_Sample = new Sample();
     request.setAttribute("option", MainConstants.address);//都道府県
     request.setAttribute("input_info", input_Sample);
-    return "article";
+    return content_no;
   }
 
   @RequestMapping(path = "/content", method = RequestMethod.POST)
