@@ -64,7 +64,7 @@ public class Main {
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
   String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no) throws Exception {
     System.out.println(content_no);
-    if(content_no.equals('1')){
+    if(content_no.equals('lib')){
       System.out.println("市");
       LibSerchResource input_SerchResource = new LibSerchResource();
       request.setAttribute("option", MainConstants.address);//都道府県
@@ -72,7 +72,7 @@ public class Main {
     }else if(content_no == "2"){
 
     }
-    return "article" + content_no;
+    return "article_" + content_no;
   }
 
   @RequestMapping(path = "/content", method = RequestMethod.POST)
