@@ -13,8 +13,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import javax.xml.parsers.DocumentBuilder;//
 import javax.xml.parsers.DocumentBuilderFactory;//
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.w3c.dom.*;
 import java.util.*;
@@ -49,8 +48,9 @@ public class YahSearch_ctrl {
         builder.append(line);
       }
       System.out.println("JSON確認" + builder.toString());
-      JSONArray jsonArray = new JSONArray(builder.toString());
-      System.out.println("Number of entries " + jsonArray.length());
+      ObjectMapper mapper = new ObjectMapper();
+      Info info = mapper.readValue(builder.toString(), Info.class);
+      System.out.println(info.name + ", " + info.age);
 
       /*JSON文字列を読み込み、JsonNodeオブジェクトに変換
       for(int i = 0; i <= 9; i++) {
