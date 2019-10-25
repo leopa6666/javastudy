@@ -50,7 +50,7 @@ public class YahSearch_ctrl {
       for(int i = 0; i <= 9; i++) {
         String hitNum = String.valueOf(i);
         JSONObject jsonObject = jsonArray.getJSONObject(i);
-        String productName = jsonObject.getString("ResultSet").getString("0").getString("Result").getString(hitNum).getString("Name").textValue();
+        String productName = jsonObject.getString("ResultSet");
         System.out.println(productName);
       }
     }
