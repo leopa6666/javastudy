@@ -51,9 +51,7 @@ public class YahSearch_ctrl {
       String json = br.readLine();
 
       //JSON文字列を読み込み、JsonNodeオブジェクトに変換
-      ObjectMapper mapper = new ObjectMapper();
-      JsonNode root = mapper.readTree(json);
-      System.out.println(root);
+      System.out.println(json);
     }
     return "article_yah";
   }
