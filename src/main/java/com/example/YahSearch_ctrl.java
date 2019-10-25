@@ -28,12 +28,12 @@ public class YahSearch_ctrl {
     System.out.println("start3");
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
     //選択した都道府県セット
-    String input_address = request.getParameter("example");
-    LibSerchResource input_SerchResource = new LibSerchResource();
-    input_SerchResource.setInputAddress(input_address);
+    //String input_address = request.getParameter("example");
+    //LibSerchResource input_SerchResource = new LibSerchResource();
+    //input_SerchResource.setInputAddress(input_address);
     //Modelへ
-    request.setAttribute("input_info", input_SerchResource);
-    request.setAttribute("option", MainConstants.address);
+    //request.setAttribute("input_info", input_SerchResource);
+    //request.setAttribute("option", MainConstants.address);
 
     //リクエスト start
     String encodedResult = URLEncoder.encode("讃岐うどん", "UTF-8");
