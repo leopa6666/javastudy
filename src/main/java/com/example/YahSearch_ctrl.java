@@ -44,8 +44,8 @@ public class YahSearch_ctrl {
       //レスポンスの読み出し(JASON文字列の取得)
       BufferedReader br = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
       builder.append(br.readLine());
-      
-      JSONArray jsonArray = new JSONArray(builder.toString());
+      String json = br.readLine();
+      JSONArray jsonArray = new JSONArray(json);
       //JSON文字列を読み込み、JsonNodeオブジェクトに変換
       for(int i = 0; i <= 9; i++) {
         String hitNum = String.valueOf(i);
