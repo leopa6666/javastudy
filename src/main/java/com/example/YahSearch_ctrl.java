@@ -13,6 +13,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import javax.xml.parsers.DocumentBuilder;//
 import javax.xml.parsers.DocumentBuilderFactory;//
+import org.json.JSONObject;
 
 import org.w3c.dom.*;
 import java.util.*;
@@ -49,14 +50,12 @@ public class YahSearch_ctrl {
       //レスポンスの読み出し(JASON文字列の取得)
       BufferedReader br = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
       String json = br.readLine();
+      JSONObject jsonObj = new JSONObject(json);
 
       //JSON文字列を読み込み、JsonNodeオブジェクトに変換
       for(int i = 0; i <= 9; i++) {
         String hitNum = String.valueOf(i);
-        String imageURL = root.get("ResultSet").get("0").get("Result").get(hitNum).get("Image").get("Small").textValue();
-        String productName = root.get("ResultSet").get("0").get("Result").get(hitNum).get("Name").textValue();
-        String price = root.get("ResultSet").get("0").get("Result").get(hitNum).get("Price").get("_value").textValue();
-        int SearchResultNum = root.get("ResultSet").get("totalResultsAvailable").asInt();  
+        String productName = jsonObj.getString("ResultSet").getString("0").getString("Result").getString(hitNum).getString("Name").textValue();
         System.out.println(productName);
       }
     }
