@@ -25,7 +25,7 @@ public class YahSearch_ctrl {
   private String yahId;
 
   public String post_yahsearch(HttpServletRequest request) throws Exception {
-    
+    System.out.println("start3");
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
     //選択した都道府県セット
     String input_address = request.getParameter("example");

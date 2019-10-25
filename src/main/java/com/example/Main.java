@@ -80,10 +80,13 @@ public class Main {
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.POST)
   String setarticle(HttpServletRequest request, HttpServletResponse response, 
                       Map<String, Object> model, @PathVariable String content_key) throws Exception {
+
+    System.out.println("start1");
     if(content_key.equals("lib")){
       LibSearch_ctrl libs_ctrl = new LibSearch_ctrl();
       return libs_ctrl.post_libsearch(request);
     }else if(content_key.equals("yah")){
+      System.out.println("start2");
       YahSearch_ctrl yah_ctrl = new YahSearch_ctrl();
       return yah_ctrl.post_yahsearch(request);
     }
