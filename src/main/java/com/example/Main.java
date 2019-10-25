@@ -87,7 +87,7 @@ public class Main {
       YahSearch_ctrl yah_ctrl = new YahSearch_ctrl();
       return yah_ctrl.post_yahsearch(request);
     }
-
+    return "index";
   }
 
   @RequestMapping("/db")
