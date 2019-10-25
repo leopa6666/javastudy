@@ -51,7 +51,7 @@ public class YahSearch_ctrl {
       }
       ObjectMapper mapper = new ObjectMapper();
       JsonNode root = mapper.readTree(builder.toString());
-      System.out.println(root.get("Name"));
+      System.out.println(root.get("ResultSet").get("0").get("Result").get(1).get("Name").textValue());
 
       /*JSON文字列を読み込み、JsonNodeオブジェクトに変換
       for(int i = 0; i <= 9; i++) {
