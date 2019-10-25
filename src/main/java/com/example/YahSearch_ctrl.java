@@ -13,6 +13,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import javax.xml.parsers.DocumentBuilder;//
 import javax.xml.parsers.DocumentBuilderFactory;//
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import org.w3c.dom.*;
@@ -26,13 +27,6 @@ public class YahSearch_ctrl {
   public String post_yahsearch(HttpServletRequest request) throws Exception {
     System.out.println("start3");
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
-    //選択した都道府県セット
-    //String input_address = request.getParameter("example");
-    //LibSerchResource input_SerchResource = new LibSerchResource();
-    //input_SerchResource.setInputAddress(input_address);
-    //Modelへ
-    //request.setAttribute("input_info", input_SerchResource);
-    //request.setAttribute("option", MainConstants.address);
 
     //リクエスト start
     String encodedResult = URLEncoder.encode("讃岐うどん", "UTF-8");
@@ -45,17 +39,18 @@ public class YahSearch_ctrl {
     //リクエスト end
 
     int rspCode = urlConn.getResponseCode();
+    StringBuilder builder = new StringBuilder();
     if (rspCode == 200) {
       System.out.println("OK");
       //レスポンスの読み出し(JASON文字列の取得)
       BufferedReader br = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
-      String json = br.readLine();
-      JSONObject jsonObj = new JSONObject(json);
-
+      builder.append(br.readLine());
+      
+      JSONArray jsonArray = new JSONArray(builder.toString());
       //JSON文字列を読み込み、JsonNodeオブジェクトに変換
       for(int i = 0; i <= 9; i++) {
-        String hitNum = String.valueOf(i);
-        String productName = jsonObj.getString("ResultSet").getString("0").getString("Result").getString(hitNum).getString("Name").textValue();
+        JSONObject jsonObject = jsonArray.getJSONObject(i);
+        String productName = jsonObject.getString("ResultSet").getString("0").getString("Result").getString(hitNum).getString("Name").textValue();
         System.out.println(productName);
       }
     }
