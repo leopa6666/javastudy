@@ -13,8 +13,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import javax.xml.parsers.DocumentBuilder;//
 import javax.xml.parsers.DocumentBuilderFactory;//
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.*;
 
 import org.w3c.dom.*;
 import java.util.*;
@@ -49,6 +48,7 @@ public class YahSearch_ctrl {
       JSONArray jsonArray = new JSONArray(builder.toString());
       //JSON文字列を読み込み、JsonNodeオブジェクトに変換
       for(int i = 0; i <= 9; i++) {
+        String hitNum = String.valueOf(i);
         JSONObject jsonObject = jsonArray.getJSONObject(i);
         String productName = jsonObject.getString("ResultSet").getString("0").getString("Result").getString(hitNum).getString("Name").textValue();
         System.out.println(productName);
