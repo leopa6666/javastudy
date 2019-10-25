@@ -37,6 +37,7 @@ public class YahSearch_ctrl {
 
     //リクエスト start
     String encodedResult = URLEncoder.encode("讃岐うどん", "UTF-8");
+    System.out.println("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
     URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
     urlConn.setRequestMethod("GET");
@@ -46,8 +47,8 @@ public class YahSearch_ctrl {
 
     int rspCode = urlConn.getResponseCode();
     if (rspCode == 200) {
-        System.out.println("OK");
-      }
+      System.out.println("OK");
+    }
     return "article_yah";
   }
 }
