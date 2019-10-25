@@ -13,7 +13,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import javax.xml.parsers.DocumentBuilder;//
 import javax.xml.parsers.DocumentBuilderFactory;//
-import org.json.*;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 
 import org.w3c.dom.*;
 import java.util.*;
@@ -37,17 +38,19 @@ public class YahSearch_ctrl {
     //Map headerFields = urlConn.getHeaderFields();
     //リクエスト end
 
-    int rspCode = urlConn.getResponseCode();
     StringBuilder builder = new StringBuilder();
+    int rspCode = urlConn.getResponseCode();
     if (rspCode == 200) {
       System.out.println("OK");
       //レスポンスの読み出し(JASON文字列の取得)
+      String line;
       BufferedReader br = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
-      builder.append(br.readLine());
-      String json = br.readLine();
-      JSONArray jsonArray = new JSONArray(json);
-      System.out.println(jsonArray);
-      
+      while ((line = br.readLine()) != null) {
+        builder.append(line);
+      }
+      JSONArray jsonArray = new JSONArray(builder.toString());
+      System.out.println("Number of entries " + jsonArray.length());
+
       /*JSON文字列を読み込み、JsonNodeオブジェクトに変換
       for(int i = 0; i <= 9; i++) {
         String hitNum = String.valueOf(i);
