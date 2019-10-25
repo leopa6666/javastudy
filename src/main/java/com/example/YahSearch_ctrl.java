@@ -6,6 +6,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.stereotype.Controller;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Value;
 import java.io.InputStream;
 import javax.net.ssl.HttpsURLConnection;
 import java.net.URL;

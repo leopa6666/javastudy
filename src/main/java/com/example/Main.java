@@ -85,7 +85,7 @@ public class Main {
       return libs_ctrl.post_libsearch(request);
     }else if(content_key.equals("yah")){
       YahSearch_ctrl yah_ctrl = new YahSearch_ctrl();
-      return libs_ctrl.post_yahsearch(request);
+      return yah_ctrl.post_yahsearch(request);
     }
 
   }
