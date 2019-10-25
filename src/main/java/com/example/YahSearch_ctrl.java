@@ -48,6 +48,7 @@ public class YahSearch_ctrl {
       while ((line = br.readLine()) != null) {
         builder.append(line);
       }
+      System.out.println("JSON確認" + builder.toString());
       JSONArray jsonArray = new JSONArray(builder.toString());
       System.out.println("Number of entries " + jsonArray.length());
 
