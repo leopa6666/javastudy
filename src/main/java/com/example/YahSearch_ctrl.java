@@ -46,13 +46,15 @@ public class YahSearch_ctrl {
       builder.append(br.readLine());
       String json = br.readLine();
       JSONArray jsonArray = new JSONArray(json);
-      //JSON文字列を読み込み、JsonNodeオブジェクトに変換
+      System.out.println(jsonArray);
+      
+      /*JSON文字列を読み込み、JsonNodeオブジェクトに変換
       for(int i = 0; i <= 9; i++) {
         String hitNum = String.valueOf(i);
         JSONObject jsonObject = jsonArray.getJSONObject(i);
         String productName = jsonObject.getString("ResultSet");
         System.out.println(productName);
-      }
+      }*/
     }
     return "article_yah";
   }
