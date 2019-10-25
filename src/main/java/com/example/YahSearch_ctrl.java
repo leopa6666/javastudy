@@ -32,12 +32,9 @@ public class YahSearch_ctrl {
     //request.setAttribute("input_info", input_SerchResource);
     //request.setAttribute("option", MainConstants.address);
 
-    @Value("${spring.yclientid.url}")
-    private String yahId;
-
     //リクエスト start
     String encodedResult = URLEncoder.encode("讃岐うどん", "UTF-8");
-    System.out.println("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
+    //System.out.println("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
     URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj00aiZpPXZMZUxXMXhBc3FXUyZzPWNvbnN1bWVyc2VjcmV0Jng9NDk-"+"&query="+encodedResult);
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
     urlConn.setRequestMethod("GET");
