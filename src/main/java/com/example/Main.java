@@ -49,6 +49,9 @@ public class Main {
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
+  @Value("${spring.yclientkey.url}")
+  private String yahKey;
+
   @Autowired
   private DataSource dataSource;
   
@@ -63,22 +66,27 @@ public class Main {
 
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
   String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no) throws Exception {
-    System.out.println(content_no);
+    //System.out.println(content_no);
     if(content_no.equals("lib")){
-      System.out.println("市");
       LibSerchResource input_SerchResource = new LibSerchResource();
       request.setAttribute("option", MainConstants.address);//都道府県
       request.setAttribute("input_info", input_SerchResource);
-    }else if(content_no == "2"){
+    }else if(content_no.equals("yah")){
 
     }
     return "article_" + content_no;
   }
 
-  @RequestMapping(path = "/content", method = RequestMethod.POST)
-  String setarticle(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
-    LibSearch_ctrl libs_ctrl = new LibSearch_ctrl();
-    return libs_ctrl.post_libsearch(request);
+  @RequestMapping(path = "/content/{content_no}", method = RequestMethod.POST)
+  String setarticle(HttpServletRequest request, HttpServletResponse response, 
+                      Map<String, Object> model, @PathVariable String content_key) throws Exception {
+    if(content_key.equals("lib")){
+      LibSearch_ctrl libs_ctrl = new LibSearch_ctrl();
+      return libs_ctrl.post_libsearch(request);
+    }else if(content_key.equals("yah")){
+      YahSearch_ctrl yah_ctrl = new YahSearch_ctrl();
+      return libs_ctrl.post_yahsearch(request);
+    }
 
   }
 
