@@ -21,9 +21,6 @@ import java.util.*;
 @Scope("prototype")
 public class YahSearch_ctrl {
   
-  @Value("${spring.yclientid.url}")
-  private String yahId;
-
   public String post_yahsearch(HttpServletRequest request) throws Exception {
     System.out.println("start3");
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
@@ -34,6 +31,9 @@ public class YahSearch_ctrl {
     //Modelへ
     //request.setAttribute("input_info", input_SerchResource);
     //request.setAttribute("option", MainConstants.address);
+
+    @Value("${spring.yclientid.url}")
+    private String yahId;
 
     //リクエスト start
     String encodedResult = URLEncoder.encode("讃岐うどん", "UTF-8");
