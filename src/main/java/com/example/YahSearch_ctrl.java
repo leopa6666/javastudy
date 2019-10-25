@@ -51,7 +51,14 @@ public class YahSearch_ctrl {
       String json = br.readLine();
 
       //JSON文字列を読み込み、JsonNodeオブジェクトに変換
-      System.out.println(json);
+      for(int i = 0; i <= 9; i++) {
+        String hitNum = String.valueOf(i);
+        String imageURL = root.get("ResultSet").get("0").get("Result").get(hitNum).get("Image").get("Small").textValue();
+        String productName = root.get("ResultSet").get("0").get("Result").get(hitNum).get("Name").textValue();
+        String price = root.get("ResultSet").get("0").get("Result").get(hitNum).get("Price").get("_value").textValue();
+        int SearchResultNum = root.get("ResultSet").get("totalResultsAvailable").asInt();  
+        System.out.println(productName);
+      }
     }
     return "article_yah";
   }
