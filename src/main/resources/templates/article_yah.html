@@ -29,17 +29,17 @@
       <h3><span class="glyphicon glyphicon-info-sign"></span>検索条件</h3>
         <form action="/content/yah" method="post" >
           <span>都道府県:</span>
-          <select name="example">
+          <!--select name="example">
             <option th:each="op : ${option}" th:selected="${input_info.getInputAddress() == op }"><p th:text="${op}" ></p></option>
-          </select>
+          </select-->
           <input type="submit" name="search" value="実行" />
         </form>
-        <p th:text="${input_SerchResource}"></p>
+        <!--p th:text="${input_SerchResource}"></p>
         <div th:each="record : ${libmap}" class="libmap">
           <div th:each="map : ${record}">
             <span th:class="${map.key}+'_title'" th:text="${map.value}"></span>
           </div>
-        </div>
+        </div-->
     </div>
   </div>
 </div>
