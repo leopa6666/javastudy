@@ -16,6 +16,7 @@ import javax.xml.parsers.DocumentBuilderFactory;//
 
 import org.w3c.dom.*;
 import java.util.*;
+import java.io.*;
 
 @Controller
 @Scope("prototype")
@@ -45,6 +46,14 @@ public class YahSearch_ctrl {
     int rspCode = urlConn.getResponseCode();
     if (rspCode == 200) {
       System.out.println("OK");
+      //レスポンスの読み出し(JASON文字列の取得)
+      BufferedReader br = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
+      String json = br.readLine();
+
+      //JSON文字列を読み込み、JsonNodeオブジェクトに変換
+      ObjectMapper mapper = new ObjectMapper();
+      JsonNode root = mapper.readTree(json);
+      System.out.println(root);
     }
     return "article_yah";
   }
