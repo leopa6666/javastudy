@@ -33,10 +33,10 @@ public class YahSearch_ctrl {
     String input_keyword = request.getParameter("keyword");
     System.out.println("input_keyword"+input_keyword);
     String encodedResult = URLEncoder.encode(input_keyword, "UTF-8");
-    //System.out.println("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
     String yahId = System.getenv("YAHOO_CLIENT_ID");
-    URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
-    //URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj00aiZpPXZMZUxXMXhBc3FXUyZzPWNvbnN1bWVyc2VjcmV0Jng9NDk-"+"&query="+encodedResult);
+    String yahQuery = create_query(request);
+    URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId + yahQuery);
+    //URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
     urlConn.setRequestMethod("GET");
     urlConn.connect();
@@ -54,8 +54,26 @@ public class YahSearch_ctrl {
       }
       ObjectMapper mapper = new ObjectMapper();
       JsonNode root = mapper.readTree(builder.toString());
-      System.out.println(root.get("ResultSet").get("0").get("Result").get("0").get("Name").textValue());
+      Integer count = 0;
+      for (JsonNode ro :root.get("ResultSet") {
+        System.out.println(root.get("ResultSet").get(String.ValueOf(count)).get("Result").get(String.ValueOf(count)).get("Name").textValue());
+        count++;
+        if(count == 100){
+          break;
+        }
+      }
+      //System.out.println(root.get("ResultSet").get("0").get("Result").get("0").get("Name").textValue());
     }
     return "article_yah";
+  }
+
+  private String create_query(HttpServletRequest request) {
+    String resultQuery = "";
+    if(request.getParameter("keyword") != null){
+      String input_keyword = request.getParameter("keyword");
+      String encodedResult = URLEncoder.encode(input_keyword, "UTF-8");
+      resultQuery = "&query=" + encodedResult;
+    }
+    return resultQuery;
   }
 }
