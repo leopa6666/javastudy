@@ -56,7 +56,7 @@ public class YahSearch_ctrl {
       JsonNode root = mapper.readTree(builder.toString());
       Integer count = 0;
       for (JsonNode ro :root.get("ResultSet")) {
-        System.out.println(ro);
+        System.out.println("★★S★★"+ro"★★E★★");
         //System.out.println(root.get("ResultSet").get(count.toString()).get("Result").get(count.toString()).get("Name").textValue());
         count++;
         if(count == 100){
