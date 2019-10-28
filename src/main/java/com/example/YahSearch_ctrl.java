@@ -55,12 +55,17 @@ public class YahSearch_ctrl {
       ObjectMapper mapper = new ObjectMapper();
       JsonNode root = mapper.readTree(builder.toString());
       Integer count = Integer.parseInt(root.get("ResultSet").get("totalResultsReturned").toString());
+      ArrayList<Map<String, String>> yahlist = new ArrayList<Map<String, String>>();
       for(Integer i=0; i < count ;i++){
-        System.out.println("★★S★★");
-        System.out.println(root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Name").textValue());
-        System.out.println("★★E★★");
+        Map<String, String> infomap = new HashMap<>();
+        infomap.put("Name" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Name").textValue());
+        infomap.put("Description" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Description").textValue());
+        infomap.put("Url" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Url").textValue());
+        infomap.put("Price" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Price").textValue());
+        yahlist.add(infomap);
+        //System.out.println(root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Name").textValue());
       }
-      //System.out.println(root.get("ResultSet").get("0").get("Result").get("0").get("Name").textValue());
+      request.setAttribute("yahlist",yahlist);
     }
     return "article_yah";
   }
@@ -70,7 +75,7 @@ public class YahSearch_ctrl {
     if(request.getParameter("keyword") != null){
       String input_keyword = request.getParameter("keyword");
       String encodedResult = URLEncoder.encode(input_keyword, "UTF-8");
-      resultQuery = "&query=" + encodedResult+ "&offset=19";
+      resultQuery = "&query=" + encodedResult;
     }
 
     return resultQuery;

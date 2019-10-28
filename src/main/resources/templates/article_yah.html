@@ -32,12 +32,11 @@
           <input type="text" name="keyword" size="30" maxlength="20" value="" />
           <input type="submit" name="search" value="実行" />
         </form>
-        <!--p th:text="${input_SerchResource}"></p>
-        <div th:each="record : ${libmap}" class="libmap">
+        <div th:each="record : ${yahlist}" class="yahlist">
           <div th:each="map : ${record}">
-            <span th:class="${map.key}+'_title'" th:text="${map.value}"></span>
+            <span th:class="${map.key}" th:text="${map.value}"></span>
           </div>
-        </div-->
+        </div>
     </div>
 
     <!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
