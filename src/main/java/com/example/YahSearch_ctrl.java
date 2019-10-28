@@ -30,7 +30,7 @@ public class YahSearch_ctrl {
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
 
     //リクエスト start
-    String input_keyword = request.getParameter("example");
+    String input_keyword = request.getParameter("keyword");
     System.out.println("input_keyword"+input_keyword);
     String encodedResult = URLEncoder.encode(input_keyword, "UTF-8");
     //System.out.println("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
