@@ -72,7 +72,7 @@ public class Main {
       request.setAttribute("option", MainConstants.address);//都道府県
       request.setAttribute("input_info", input_SerchResource);
     }else if(content_no.equals("yah")){
-
+      request.setAttribute("keyword", "初期値");//都道府県
     }
     return "article_" + content_no;
   }
