@@ -62,7 +62,7 @@ public class Main {
   }
 
   @RequestMapping("/login")
-  String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
+  String login(HttpServletRequest request, HttpServletResponse response) throws Exception {
     String user = request.getParameter("username");
     String pass = request.getParameter("password");
     if(pass == System.getenv("BASIC_AUTH_PASSWORD") && user == System.getenv("BASIC_AUTH_USERNAME")){
