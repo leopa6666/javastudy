@@ -56,16 +56,11 @@ public class YahSearch_ctrl {
       JsonNode root = mapper.readTree(builder.toString());
       System.out.println("★★Size★★"+root.get("ResultSet").get("totalResultsReturned"));
       System.out.println("★★Size★★"+root.get("ResultSet").get("0").get("Result").get("0") );
-      /*
-      for(Integer i=0;i<=root.size();i++){
+      for(Integer i=0;i<=root.get("ResultSet").get("totalResultsReturned");i++){
         System.out.println("★★S★★");
-        System.out.println(root.get("ResultSet").get(i.toString()).get("Result").get(i.toString()).get("Name").textValue());
+        System.out.println(root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Name").textValue());
         System.out.println("★★E★★");
-        if(i == 100){
-          break;
-        }
       }
-      */
       //System.out.println(root.get("ResultSet").get("0").get("Result").get("0").get("Name").textValue());
     }
     return "article_yah";
