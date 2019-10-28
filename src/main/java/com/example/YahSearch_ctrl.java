@@ -31,6 +31,7 @@ public class YahSearch_ctrl {
 
     //リクエスト start
     String input_keyword = request.getParameter("example");
+    System.out.println("input_keyword"+input_keyword);
     String encodedResult = URLEncoder.encode(input_keyword, "UTF-8");
     //System.out.println("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
     URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj00aiZpPXZMZUxXMXhBc3FXUyZzPWNvbnN1bWVyc2VjcmV0Jng9NDk-"+"&query="+encodedResult);
