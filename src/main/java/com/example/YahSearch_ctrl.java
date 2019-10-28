@@ -67,7 +67,7 @@ public class YahSearch_ctrl {
     return "article_yah";
   }
 
-  private String create_query(HttpServletRequest request) {
+  private String create_query(HttpServletRequest request) throws Exception  {
     String resultQuery = "";
     if(request.getParameter("keyword") != null){
       String input_keyword = request.getParameter("keyword");
