@@ -54,8 +54,6 @@ public class YahSearch_ctrl {
       }
       ObjectMapper mapper = new ObjectMapper();
       JsonNode root = mapper.readTree(builder.toString());
-      //System.out.println("★★Size★★"+root.get("ResultSet").get("totalResultsReturned"));
-      //System.out.println("★★Size★★"+root.get("ResultSet").get("0").get("Result").get("0") );
       Integer count = Integer.parseInt(root.get("ResultSet").get("totalResultsReturned").toString());
       for(Integer i=0; i < count ;i++){
         System.out.println("★★S★★");
@@ -72,8 +70,9 @@ public class YahSearch_ctrl {
     if(request.getParameter("keyword") != null){
       String input_keyword = request.getParameter("keyword");
       String encodedResult = URLEncoder.encode(input_keyword, "UTF-8");
-      resultQuery = "&query=" + encodedResult;
+      resultQuery = "&query=" + encodedResult+ "&offset=19";
     }
+
     return resultQuery;
   }
 }
