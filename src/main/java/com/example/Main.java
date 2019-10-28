@@ -68,6 +68,7 @@ public class Main {
     if(pass == System.getenv("BASIC_AUTH_PASSWORD") && user == System.getenv("BASIC_AUTH_USERNAME")){
       return "index";
     }
+    return "";
   }
 
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
