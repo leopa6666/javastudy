@@ -49,9 +49,6 @@ public class Main {
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
-  @Value("${spring.yclientkey.url}")
-  private String yahKey;
-
   @Autowired
   private DataSource dataSource;
   

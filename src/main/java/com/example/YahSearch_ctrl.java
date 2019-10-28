@@ -34,11 +34,12 @@ public class YahSearch_ctrl {
     System.out.println("input_keyword"+input_keyword);
     String encodedResult = URLEncoder.encode(input_keyword, "UTF-8");
     //System.out.println("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
-    URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj00aiZpPXZMZUxXMXhBc3FXUyZzPWNvbnN1bWVyc2VjcmV0Jng9NDk-"+"&query="+encodedResult);
+    String yahId = System.getenv("YAHOO_CLIENT_ID");
+    URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
+    //URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj00aiZpPXZMZUxXMXhBc3FXUyZzPWNvbnN1bWVyc2VjcmV0Jng9NDk-"+"&query="+encodedResult);
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
     urlConn.setRequestMethod("GET");
     urlConn.connect();
-    //Map headerFields = urlConn.getHeaderFields();
     //リクエスト end
 
     StringBuilder builder = new StringBuilder();
@@ -54,14 +55,6 @@ public class YahSearch_ctrl {
       ObjectMapper mapper = new ObjectMapper();
       JsonNode root = mapper.readTree(builder.toString());
       System.out.println(root.get("ResultSet").get("0").get("Result").get("0").get("Name").textValue());
-
-      /*JSON文字列を読み込み、JsonNodeオブジェクトに変換
-      for(int i = 0; i <= 9; i++) {
-        String hitNum = String.valueOf(i);
-        JSONObject jsonObject = jsonArray.getJSONObject(i);
-        String productName = jsonObject.getString("ResultSet");
-        System.out.println(productName);
-      }*/
     }
     return "article_yah";
   }
