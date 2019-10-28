@@ -30,7 +30,8 @@ public class YahSearch_ctrl {
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
 
     //リクエスト start
-    String encodedResult = URLEncoder.encode("讃岐うどん", "UTF-8");
+    String input_keyword = request.getParameter("example");
+    String encodedResult = URLEncoder.encode(input_keyword, "UTF-8");
     //System.out.println("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
     URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj00aiZpPXZMZUxXMXhBc3FXUyZzPWNvbnN1bWVyc2VjcmV0Jng9NDk-"+"&query="+encodedResult);
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
