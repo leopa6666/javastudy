@@ -54,12 +54,11 @@ public class YahSearch_ctrl {
       }
       ObjectMapper mapper = new ObjectMapper();
       JsonNode root = mapper.readTree(builder.toString());
-      Integer count = 0;
-      for (JsonNode ro :root.get("ResultSet")) {
-        System.out.println("★★S★★"+ro +"★★E★★");
-        //System.out.println(root.get("ResultSet").get(count.toString()).get("Result").get(count.toString()).get("Name").textValue());
-        count++;
-        if(count == 100){
+      for(Integer i=0;i<=root.size()){
+        System.out.println("★★S★★");
+        System.out.println(root.get("ResultSet").get(i.toString()).get("Result").get(i.toString()).get("Name").textValue());
+        System.out.println("★★E★★");
+        if(i == 100){
           break;
         }
       }
