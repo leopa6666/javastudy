@@ -54,7 +54,8 @@ public class YahSearch_ctrl {
       }
       ObjectMapper mapper = new ObjectMapper();
       JsonNode root = mapper.readTree(builder.toString());
-      System.out.println("★★Size★★"+root.size());
+      System.out.println("★★Size★★"+root.get("ResultSet").size());
+      System.out.println("★★Size★★"+root.get("ResultSet").get("0") );
       /*
       for(Integer i=0;i<=root.size();i++){
         System.out.println("★★S★★");
