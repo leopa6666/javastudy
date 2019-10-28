@@ -55,7 +55,7 @@ public class YahSearch_ctrl {
       ObjectMapper mapper = new ObjectMapper();
       JsonNode root = mapper.readTree(builder.toString());
       Integer count = 0;
-      for (JsonNode ro :root.get("ResultSet") {
+      for (JsonNode ro :root.get("ResultSet")) {
         System.out.println(root.get("ResultSet").get(String.ValueOf(count)).get("Result").get(String.ValueOf(count)).get("Name").textValue());
         count++;
         if(count == 100){
