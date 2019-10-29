@@ -61,16 +61,6 @@ public class Main {
     return "index";
   }
 
-  @RequestMapping("/login")
-  String login(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    String user = request.getParameter("username");
-    String pass = request.getParameter("password");
-    if(pass == System.getenv("BASIC_AUTH_PASSWORD") && user == System.getenv("BASIC_AUTH_USERNAME")){
-      return "index";
-    }
-    return "error";
-  }
-
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
   String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no) throws Exception {
     //System.out.println(content_no);
