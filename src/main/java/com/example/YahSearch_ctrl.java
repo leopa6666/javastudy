@@ -58,10 +58,10 @@ public class YahSearch_ctrl {
       ArrayList<Map<String, String>> yahlist = new ArrayList<Map<String, String>>();
       for(Integer i=0; i < count ;i++){
         Map<String, String> infomap = new HashMap<>();
-        infomap.put("1Name" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Name").textValue());
-        infomap.put("2Description" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Description").textValue());
-        infomap.put("3Url" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Url").textValue());
-        infomap.put("4Price" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Price").textValue());
+        infomap.put("1" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Name").textValue());
+        infomap.put("2" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Description").textValue());
+        infomap.put("3" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Url").textValue());
+        infomap.put("4" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Price").textValue());
         yahlist.add(infomap);
         //System.out.println(root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Name").textValue());
       }
