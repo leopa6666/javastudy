@@ -38,7 +38,7 @@
         </form>
         <div th:each="record : ${yahlist}" class="yahlist">
           <div th:each="map : ${record}" th:class="${map.key}+'_item'">
-            <span th:class="${map.key}" th:text="${map.value}"></span>
+            <span th:class="${map.key}" th:text="${map.1Name}"></span>
           </div>
         </div>
     </div>
