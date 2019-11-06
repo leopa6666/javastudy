@@ -37,7 +37,7 @@
           <input type="submit" name="search" value="実行" />
         </form>
         <div th:each="record : ${yahlist}" class="yahlist">
-          <div th:each="map : ${record}" th:class="${map.key}_Item">
+          <div th:each="map : ${record}" th:class="${map.key}+'_item'">
             <span th:class="${map.key}" th:text="${map.value}"></span>
           </div>
         </div>
