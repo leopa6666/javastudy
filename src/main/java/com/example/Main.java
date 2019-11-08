@@ -74,7 +74,7 @@ public class Main {
     return "article_" + content_no;
   }
 
-  @RequestMapping(path = "/content/", method = RequestMethod.POST)
+  @RequestMapping(path = "/content/{content_no}", method = RequestMethod.POST)
   String setarticle(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
 
     String content_key = request.getParameter("form");
