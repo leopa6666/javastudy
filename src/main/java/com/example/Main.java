@@ -63,7 +63,7 @@ public class Main {
 
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
   String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no) throws Exception {
-    //System.out.println(content_no);
+    
     if(content_no.equals("lib")){
       LibSerchResource input_SerchResource = new LibSerchResource();
       request.setAttribute("option", MainConstants.address);//都道府県
@@ -74,10 +74,10 @@ public class Main {
     return "article_" + content_no;
   }
 
-  @RequestMapping(path = "/content/{content_key}", method = RequestMethod.POST)
-  String setarticle(HttpServletRequest request, HttpServletResponse response, 
-                      Map<String, Object> model, @PathVariable String content_key) throws Exception {
+  @RequestMapping(path = "/content", method = RequestMethod.POST)
+  String setarticle(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model, @PathVariable String content_key) throws Exception {
 
+    String content_key = request.getParameter("form");
     System.out.println("start1");
     if(content_key.equals("lib")){
       LibSearch_ctrl libs_ctrl = new LibSearch_ctrl();

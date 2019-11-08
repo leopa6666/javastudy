@@ -32,6 +32,8 @@
     <div>
       <h3><span class="glyphicon glyphicon-info-sign"></span>検索条件</h3>
         <form action="/content/yah" method="post" >
+          <input type="hidden" name="form" value="yah" /> 
+
           <span>キーワード:</span>
           <input type="text" name="keyword" size="30" maxlength="20" value="" />
           <input type="submit" name="search" value="実行" />
