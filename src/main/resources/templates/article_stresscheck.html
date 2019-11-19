@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
+
+<body>
+<style>
+</style>
+<script>
+</script>
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>ストレスチェック</h1>
+    <p>ストレスチェックお試し版</p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div>
+      <h3><span class="glyphicon glyphicon-info-sign"></span>ストレスがどれくらいたまっているか</h3>
+      <span>※簡易的なチェックです。</span>
+
+        <form action="/content/stresscheck" method="post" >
+          <input type="hidden" name="form" value="stresscheck" /> 
+          <table>
+            <tr th:each="item : ${checkitems}">
+              <td th:text="${item.key}"></td>
+              <td th:text="${item.value}"></td>
+            </tr>
+          </table>
+        </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
