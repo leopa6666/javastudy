@@ -11,7 +11,7 @@ import java.util.Map;
 @Component
 public class StressCheckResource {
 
-  private Map<String, String> checkitems = new HashMap<String, String>() {
+  public Map<String, String> checkitems = new HashMap<String, String>() {
     {
         put("質問1", "内容1");
         put("質問2", "内容2");
