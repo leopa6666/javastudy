@@ -21,6 +21,10 @@
         <form action="/content/stresscheck" method="post" >
           <input type="hidden" name="form" value="stresscheck" /> 
           <table>
+            <tr>
+              <td>質問</td>
+              <td>回答</td>
+            </tr>
             <tr th:each="item : ${checkitems}">
               <td th:text="${item.key}"></td>
               <td th:text="${item.value}"></td>
