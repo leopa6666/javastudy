@@ -15,11 +15,11 @@ public class StressCheckResource {
 
   public List<String> checklist1 = new ArrayList<String>(){
     {
-      add('当てはまる');
-      add('少し当てはまる');
-      add('どちらでもない');
-      add('あまり当てはまらない');
-      add('当てはまらない');
+      add("当てはまる");
+      add("少し当てはまる");
+      add("どちらでもない");
+      add("あまり当てはまらない");
+      add("当てはまらない");
     }
   };
 
