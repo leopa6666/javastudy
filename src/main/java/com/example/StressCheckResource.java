@@ -23,7 +23,7 @@ public class StressCheckResource {
     }
   };
 
-  public Map<String, String> checkitems = new TreeMap<String, String>() {
+  public Map<String, List<String>> checkitems = new TreeMap<String, List<String>>() {
     {
         put("質問1", checklist1);
         put("質問2", checklist1);
