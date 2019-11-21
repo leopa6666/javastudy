@@ -20,7 +20,7 @@
 
         <form action="/content/stresscheck" method="post"  th:object="${resource}">
           <input type="hidden" name="form" value="stresscheck" /> 
-          <input type="text" name="scheck1" th:text="*{scheck1}" ></input>
+          <input type="text" name="scheck1" th:field="*{scheck1}" ></input>
 
           <table border="1" cellpadding="2">
             <tr>
