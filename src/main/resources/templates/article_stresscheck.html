@@ -28,8 +28,8 @@
             <tr th:each="item,itemstatus : ${checkitems}">
               <td th:text="${item.value}"></td>
               <td>
-                <div th:each="answer, status : ${answers}">
-                  <input type="radio" name="checkitem" th:id="|${item.key}_${status.count}|" th:value="${answer}" >
+                <div th:each="answer, status : ${answers}" style="border: solid 1px #000000;margin: 5px 0px;">
+                  <input type="radio" name="${item.key}" th:id="|${item.key}_${status.count}|" th:value="${answer}" >
                   <label th:for="|${item.key}_${status.count}|" th:text="${answer}"></label>
                 </div>
               </td>
