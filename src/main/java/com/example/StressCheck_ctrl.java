@@ -15,8 +15,8 @@ public class StressCheck_ctrl {
 
   public String post_stresscheck(HttpServletRequest request) throws Exception {
 
-    StressCheckResource resouce = request.getAttribute("resource");
-    System.out.println(resouce);
+    
+    System.out.println(request.getAttribute("resource"););
     return "article_stresscheck";
   }
 }
