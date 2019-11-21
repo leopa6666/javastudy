@@ -93,8 +93,8 @@ public class Main {
       YahSearch_ctrl yah_ctrl = new YahSearch_ctrl();
       return yah_ctrl.post_yahsearch(request);
     }else if(content_key.equals("stresscheck")){
-      StressCheck_ctrl scheck_ctrl = new StressCheck_ctrl();
-      return scheck_ctrl.post_stresscheck()
+      //StressCheck_ctrl scheck_ctrl = new StressCheck_ctrl();
+      //return scheck_ctrl.post_stresscheck()
     }
     return "index";
   }
