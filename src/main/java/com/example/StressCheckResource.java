@@ -23,6 +23,10 @@ public class StressCheckResource {
     return scheck1;
   }
 
+  StressCheckResource(){
+    this.scheck1 = 'test';
+  }
+
   @Getter
   @Setter
   private String scheck2;
