@@ -27,7 +27,9 @@
             </tr>
             <tr th:each="item : ${checkitems}">
               <td th:text="${item.key}"></td>
-              <td><input type="radio" value="${item.value}" /></td>
+              <td>
+                <div th:each="selectitem : ${item.value}"><input type="radio" value="selectitem" /></div>
+              </td>
             </tr>
           </table>
         </form>
