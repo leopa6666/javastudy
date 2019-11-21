@@ -14,7 +14,7 @@ import lombok.Setter;
 import lombok.Data;
 
 @Data
-public class StressCheckResource {
+public class StressCheckForm {
 
   private String scheck1; // 案件区分
   private String anken_name; // 案件名 
