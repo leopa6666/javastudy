@@ -29,7 +29,7 @@
               <td th:text="${item.key}"></td>
               <td>
                 <div th:each="selectitem : ${item.value}">
-                  <input type="radio" name="checkitem" th:value="${selectitem}" th:text="${selectitem}" >
+                  <input type="radio" name="checkitem" th:id="${selectitem.count}" th:value="${selectitem}" ><label th:for="${selectitem.count}" th:text="${selectitem}"></label>
                 </div>
               </td>
             </tr>
