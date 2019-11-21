@@ -12,6 +12,21 @@ import java.util.List;
 
 @Component
 public class StressCheckResource {
+  @Getter
+  @Setter
+  private String scheck1;
+  @Getter
+  @Setter
+  private String scheck2;
+  @Getter
+  @Setter
+  private String scheck3;
+  @Getter
+  @Setter
+  private String scheck4;
+  @Getter
+  @Setter
+  private String scheck5;
 
   public List<String> checklist1 = new ArrayList<String>(){
     {

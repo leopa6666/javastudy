@@ -15,7 +15,7 @@ public class StressCheck_ctrl {
 
   public String post_stresscheck(HttpServletRequest request) throws Exception {
 
-    //checkitems
+
     return "article_stresscheck";
   }
 }
