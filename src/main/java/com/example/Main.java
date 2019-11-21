@@ -75,7 +75,7 @@ public class Main {
     }else if(content_no.equals("stresscheck")){
       StressCheckResource scResource = new StressCheckResource();
       request.setAttribute("checkitems", scResource.questionMap);//質問マップ
-      request.setAttribute("answer", scResource.checklist1);//質問マップ
+      request.setAttribute("answers", scResource.checklist1);//質問マップ
     }
     return "article_" + content_no;
   }

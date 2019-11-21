@@ -28,9 +28,9 @@
             <tr th:each="item,itemstatus : ${checkitems}">
               <td th:text="${item.value}"></td>
               <td>
-                <div th:each="selectitem, status : ${item.answer}">
-                  <input type="radio" name="checkitem" th:id="${item.key}" th:value="${selectitem}" >
-                  <label th:for="${item.key}" th:text="${selectitem}"></label>
+                <div th:each="answer, status : ${answers}">
+                  <input type="radio" name="checkitem" th:id="${item.key}" th:value="${answer}" >
+                  <label th:for="${item.key}" th:text="${answer}"></label>
                 </div>
               </td>
             </tr>
