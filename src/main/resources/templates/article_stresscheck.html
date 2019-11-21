@@ -28,8 +28,8 @@
             <tr th:each="item : ${checkitems}">
               <td th:text="${item.key}"></td>
               <td>
-                <div th:each="selectitem : ${item.value}">
-                  <input type="radio" name="checkitem" value="${selectitem}" th:text="${selectitem}" >
+                <div th:inline="text" th:each="selectitem : ${item.value}">
+                  <input type="radio" name="checkitem" value="[[${selectitem}]]" th:text="${selectitem}" >
                 </div>
               </td>
             </tr>
