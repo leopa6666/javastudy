@@ -36,6 +36,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView; 
 //package com.example.MainConstants;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -60,6 +61,24 @@ public class Main {
   @RequestMapping("/")
   String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
     return "index";
+  }
+
+  @ModelAttribute
+  StressCheckResource setUpForm() {
+      return new StressCheckResource();
+  }
+
+  @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.GET)
+  public ModelAndView getcheck(ModelAndView mav) {
+      mav.setViewName("article_stresscheck");
+      mav.addObject("resource", new StressCheckResource()); // 
+      return mav;
+  }
+  @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
+  public ModelAndView setcheck(ModelAndView mav) {
+      mav.setViewName("article_stresscheck");
+      mav.addObject("resource", new StressCheckResource()); // 
+      return mav;
   }
 
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
