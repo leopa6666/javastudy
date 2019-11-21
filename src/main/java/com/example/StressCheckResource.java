@@ -24,7 +24,7 @@ public class StressCheckResource {
   }
 
   StressCheckResource(){
-    this.scheck1 = 'test';
+    this.scheck1 = "test";
   }
 
   @Getter
