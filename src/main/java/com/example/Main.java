@@ -62,7 +62,7 @@ public class Main {
   }
 
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
-  String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no ,ModelAndView model) throws Exception {
+  String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no ,Model model) throws Exception {
     
     if(content_no.equals("lib")){
       LibSerchResource input_SerchResource = new LibSerchResource();
