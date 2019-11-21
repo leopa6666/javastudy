@@ -25,12 +25,12 @@
               <td>質問</td>
               <td>回答</td>
             </tr>
-            <tr th:each="item : ${checkitems}">
+            <tr th:each="item,itemstatus : ${checkitems}">
               <td th:text="${item.key}"></td>
               <td>
-                <div th:each="selectitem, status : ${item.value}">
-                  <input type="radio" name="checkitem" th:id="${status.count}" th:value="${selectitem}" >
-                  <label th:for="${status.count}" th:text="${selectitem}"></label>
+                <div th:each="selectitem, valuestatus : ${item.value}">
+                  <input type="radio" name="checkitem" th:id="${itemstatus.count & valuestatus.count}" th:value="${selectitem}" >
+                  <label th:for="${valuestatus.count}" th:text="${selectitem}"></label>
                 </div>
               </td>
             </tr>
