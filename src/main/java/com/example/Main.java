@@ -37,6 +37,7 @@ import java.sql.Statement;
 
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView; 
+import org.springframework.web.bind.annotation.RequestMapping;
 //package com.example.MainConstants;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -71,13 +72,13 @@ public class Main {
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.GET)
   public ModelAndView getcheck(ModelAndView mav) {
       mav.setViewName("article_stresscheck");
-      mav.addObject("resource", new StressCheckResource()); // 
+      mav.addObject("resource", new StressCheckForm()); // 
       return mav;
   }
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
   public ModelAndView setcheck(ModelAndView mav) {
       mav.setViewName("article_stresscheck");
-      mav.addObject("resource", new StressCheckResource()); // 
+      mav.addObject("resource", new StressCheckForm()); // 
       return mav;
   }
 
