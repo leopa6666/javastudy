@@ -35,7 +35,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.springframework.web.servlet.Model;
+import org.springframework.web.servlet.ModelAndView;
 //package com.example.MainConstants;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -63,7 +63,7 @@ public class Main {
   }
 
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
-  String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no ,Model model) throws Exception {
+  String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no ,ModelAndView model) throws Exception {
     
     if(content_no.equals("lib")){
       LibSerchResource input_SerchResource = new LibSerchResource();
@@ -75,7 +75,7 @@ public class Main {
       //request.setAttribute("keyword", "初期値");//都道府県
     }else if(content_no.equals("stresscheck")){
       StressCheckResource scResource = new StressCheckResource();
-      model.addAttribute("resource",scResource);
+      model.addObject("resource",scResource);
       request.setAttribute("checkitems", scResource.questionMap);//質問マップ
       request.setAttribute("answers", scResource.checklist1);//質問マップ
     }
