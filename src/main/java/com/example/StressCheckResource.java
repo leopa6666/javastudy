@@ -14,9 +14,15 @@ import lombok.Setter;
 
 @Component
 public class StressCheckResource {
-  @Getter
-  @Setter
+
   private String scheck1;
+  public void setScheck1(String scheck1){
+    this.scheck1 = scheck1;
+  }
+  public String getScheck1(){
+    return scheck1;
+  }
+
   @Getter
   @Setter
   private String scheck2;
