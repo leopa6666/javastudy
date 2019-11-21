@@ -28,7 +28,9 @@
             <tr th:each="item : ${checkitems}">
               <td th:text="${item.key}"></td>
               <td>
-                <div th:each="selectitem : ${item.value}"><input type="radio" value="selectitem" /></div>
+                <div th:each="selectitem : ${item.value}">
+                  <input type="radio" name="checkitem" value="{!selectitem}" /><p>{!selectitem}</p>
+                </div>
               </td>
             </tr>
           </table>
