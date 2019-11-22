@@ -15,31 +15,6 @@ import lombok.Setter;
 @Component
 public class StressCheckResource {
 
-  private String scheck1;
-  public void setScheck1(String scheck1){
-    this.scheck1 = scheck1;
-  }
-  public String getScheck1(){
-    return scheck1;
-  }
-
-  StressCheckResource(){
-    this.scheck1 = "test";
-  }
-
-  @Getter
-  @Setter
-  private String scheck2;
-  @Getter
-  @Setter
-  private String scheck3;
-  @Getter
-  @Setter
-  private String scheck4;
-  @Getter
-  @Setter
-  private String scheck5;
-
   public List<String> checklist1 = new ArrayList<String>(){
     {
       add("当てはまる");
