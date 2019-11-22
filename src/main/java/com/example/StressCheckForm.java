@@ -16,6 +16,9 @@ import lombok.Data;
 @Data
 public class StressCheckForm {
 
-  private String scheck1; // 案件区分
-  private String anken_name; // 案件名 
+  private String scheck1;
+  private String scheck2;
+  private String scheck3;
+  private String scheck4;
+  private String scheck5;
 }

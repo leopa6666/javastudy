@@ -27,11 +27,11 @@ public class StressCheckResource {
 
   public Map<String, String> questionMap = new TreeMap<String,String>(){
     {
-      put("q1","頻繁に頭痛がする");
-      put("q2","いくら寝ても眠い");
-      put("q3","手足がしびれることがある");
-      put("q4","寝つきが悪い");
-      put("q5","怒りっぽくなった");
+      put("scheck1","頻繁に頭痛がする");
+      put("scheck2","いくら寝ても眠い");
+      put("scheck3","手足がしびれることがある");
+      put("scheck4","寝つきが悪い");
+      put("scheck5","怒りっぽくなった");
     }
   };
 
