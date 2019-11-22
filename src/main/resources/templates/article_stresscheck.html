@@ -18,7 +18,7 @@
       <h3><span class="glyphicon glyphicon-info-sign"></span>ストレスがどれくらいたまっているか</h3>
       <span>※簡易的なチェックです。</span>
 
-        <form action="/contents/stresscheck" method="post"  th:object="${resource}">
+        <form action="/contents/stresscheck" method="post"  th:object="${StressCheckForm}">
           <input type="hidden" name="form" value="stresscheck" /> 
           <input type="text" name="scheck2" th:field="*{scheck1}" />
 

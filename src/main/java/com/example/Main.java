@@ -37,7 +37,6 @@ import java.sql.Statement;
 
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView; 
-import org.mygroup.webapp.model.Resource;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 //package com.example.MainConstants;
@@ -78,7 +77,7 @@ public class Main {
       return mav;
   }
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
-  public ModelAndView setcheck(Resource resource , ModelAndView mav) {
+  public ModelAndView setcheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav) {
       mav.setViewName("article_stresscheck");
       System.out.println("resource"+resource);
       mav.addObject("resource", new StressCheckForm()); // 
