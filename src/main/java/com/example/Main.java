@@ -79,6 +79,7 @@ public class Main {
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
   public ModelAndView setcheck(ModelAndView mav) {
       mav.setViewName("article_stresscheck");
+      System.out.println("article_stresscheck"+mav);
       mav.addObject("resource", new StressCheckForm()); // 
       return mav;
   }
