@@ -83,7 +83,7 @@ public class Main {
   public ModelAndView setcheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav) {
       mav.setViewName("article_stresscheck");
       System.out.println("form" + form);
-      mav.addObject("resource", new StressCheckForm()); // 
+      mav.addObject("resource", form); // 
       return mav;
   }
 
