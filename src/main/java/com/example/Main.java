@@ -37,6 +37,7 @@ import java.sql.Statement;
 
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView; 
+import org.mygroup.webapp.model.Resource;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 //package com.example.MainConstants;
