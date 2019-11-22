@@ -81,12 +81,13 @@ public class Main {
   }
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
   public ModelAndView setcheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav) {
-      mav.setViewName("article_stresscheck");
-      System.out.println("form" + form);
-      mav.addObject("resource", form); // 
-      mav.addObject("checkitems", scResource.questionMap);
-      mav.addObject("answers", scResource.checklist1);
-      return mav;
+    StressCheckResource scResource = new StressCheckResource();
+    mav.setViewName("article_stresscheck");
+    System.out.println("form" + form);
+    mav.addObject("resource", form); // 
+    mav.addObject("checkitems", scResource.questionMap);
+    mav.addObject("answers", scResource.checklist1);
+    return mav;
   }
 
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
