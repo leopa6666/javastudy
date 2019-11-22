@@ -84,6 +84,8 @@ public class Main {
       mav.setViewName("article_stresscheck");
       System.out.println("form" + form);
       mav.addObject("resource", form); // 
+      mav.addObject("checkitems", scResource.questionMap);
+      mav.addObject("answers", scResource.checklist1);
       return mav;
   }
 
