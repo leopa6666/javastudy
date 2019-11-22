@@ -2,47 +2,46 @@
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
 
 <body>
-<style>
-</style>
-<script>
-</script>
-<div class="jumbotron text-center">
-  <div class="container">
-    <h1>ストレスチェック</h1>
-    <p>ストレスチェックお試し版</p>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div>
-      <h3><span class="glyphicon glyphicon-info-sign"></span>ストレスがどれくらいたまっているか</h3>
-      <span>※簡易的なチェックです。</span>
-
-        <form action="/contents/stresscheck" method="post"  th:object="${resource}">
-          <input type="hidden" name="form" value="stresscheck" /> 
-
-          <table border="1" cellpadding="2">
-            <tr>
-              <td>質問</td>
-              <td>回答</td>
-            </tr>
-            <tr th:each="item : ${checkitems}">
-              <td th:text="${item.value}"></td>
-              <td>
-                <div th:each="answer, status : ${answers}">
-                  <input type="radio" th:name="${item.key}" th:id="|${item.key}_${status.count}|" th:value="${answer}" >
-                  <label th:for="|${item.key}_${status.count}|" th:text="${answer}"></label>
-                </div>
-              </td>
-            </tr>
-          </table>
-
-          <input type="submit" name="send" value="送信" />
-
-        </form>
+  <style>
+  </style>
+  <script>
+  </script>
+  <div class="jumbotron text-center">
+    <div class="container">
+      <h1>ストレスチェック</h1>
+      <p>ストレスチェックお試し版</p>
     </div>
   </div>
-</div>
+  <div class="container">
+    <div class="row">
+      <div>
+        <h3><span class="glyphicon glyphicon-info-sign"></span>ストレスがどれくらいたまっているか</h3>
+        <span>※簡易的なチェックです。</span>
 
+          <form action="/contents/stresscheck" method="post"  th:object="${resource}">
+            <input type="hidden" name="form" value="stresscheck" /> 
+
+            <table border="1" cellpadding="2">
+              <tr>
+                <td>質問</td>
+                <td>回答</td>
+              </tr>
+              <tr th:each="item : ${checkitems}">
+                <td th:text="${item.value}"></td>
+                <td>
+                  <div th:each="answer, status : ${answers}">
+                    <input type="radio" th:name="${item.key}" th:id="|${item.key}_${status.count}|" th:value="${item.key}" >
+                    <label th:for="|${item.key}_${status.count}|" th:text="${answer}"></label>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <input type="submit" name="send" value="送信" />
+
+          </form>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
