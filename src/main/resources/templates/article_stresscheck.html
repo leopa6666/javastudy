@@ -31,7 +31,7 @@
                 <td>頻繁に頭痛がする</td>
                 <td>
                   <div  th:each="answer,index : ${answers}">
-                    <input type="radio" th:name="scheck1" th:id="|scheck1_${index}|" th:field="*{scheck1}" value=""/>
+                    <input type="radio" th:name="scheck1" th:id="|scheck1_${index}|" th:field="*{scheck1}" value="${answer}"/>
                     <label th:for="|scheck1_${index}|" th:text="${answer}"></label>
                   </div>
                 </td>
