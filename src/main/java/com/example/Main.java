@@ -74,7 +74,7 @@ public class Main {
   }
 
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.GET)
-  public ModelAndView getcheck(ModelAndView mav) {
+  public ModelAndView getcheck(ModelAndView mav) throws Exception {
     /*mav.setViewName("article_stresscheck");
     mav.addObject("resource", new StressCheckForm());
     mav.addObject("answers", scResource.checklist1);*/
@@ -82,7 +82,7 @@ public class Main {
     return mav;
   }
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
-  public ModelAndView setcheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav,HttpServletRequest request) {
+  public ModelAndView setcheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav,HttpServletRequest request) throws Exception {
     mav.setViewName("article_stresscheck");
     mav.addObject("resource", form);
     String req = request.getParameter("form");
