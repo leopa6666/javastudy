@@ -24,6 +24,7 @@ public class StressCheck_ctrl {
   public ModelAndView get_stresscheck(ModelAndView mav) throws Exception {
 
     mav.setViewName("article_stresscheck");
+    mav.addObject("page","stresscheck1");
     mav.addObject("resource", new StressCheckForm());
     mav.addObject("answers", scResource.checklist1);
     return mav;
