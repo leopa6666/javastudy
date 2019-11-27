@@ -83,7 +83,7 @@ public class Main {
   }
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
   public ModelAndView setcheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav,HttpServletRequest request) throws Exception {
-    mav = ctrl.get_stresscheck(form,mav,request);   
+    mav = ctrl.post_stresscheck(form,mav,request);   
     return mav;
   }
 
