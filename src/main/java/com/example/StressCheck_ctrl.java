@@ -36,7 +36,7 @@ public class StressCheck_ctrl {
     mav.addObject("page","stresscheck1");
     String req = request.getParameter("form");
     System.out.println("★1"+req);
-    if(req=="stresscheck1"){
+    if(req.equals("stresscheck1")){
       System.out.println("★2");
       if(request.getParameter("action")=="next"){
         System.out.println("★3");
