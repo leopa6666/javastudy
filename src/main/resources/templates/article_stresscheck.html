@@ -21,7 +21,7 @@
           <form action="/contents/stresscheck" method="post"  th:object="${resource}">
 
             <!--table border="1" cellpadding="2" th:insert="|components/stresscheck1|"-->
-            <table border="1" cellpadding="2" th:insert="|components/${}|">
+            <table border="1" cellpadding="2" th:insert="|components/${page}|">
             </table>
 
             <input type="submit" name="action" value="next" />
