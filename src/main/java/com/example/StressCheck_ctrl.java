@@ -34,9 +34,12 @@ public class StressCheck_ctrl {
     mav.setViewName("article_stresscheck");
     mav.addObject("resource", form);
     mav.addObject("page","stresscheck1");
+    System.out.println("★1");
     String req = request.getParameter("form");
     if(req=="stresscheck1"){
+      System.out.println("★2");
       if(request.getParameter("action")=="next"){
+        System.out.println("★3");
         mav.addObject("page","stresscheck2");
         mav.addObject("answers", scResource.checklist1);
       }
