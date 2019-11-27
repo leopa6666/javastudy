@@ -60,6 +60,8 @@ public class Main {
     SpringApplication.run(Main.class, args);
   }
 
+  StressCheckResource scResource = new StressCheckResource();  
+
   @RequestMapping("/")
   String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
     return "index";
@@ -72,10 +74,9 @@ public class Main {
 
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.GET)
   public ModelAndView getcheck(ModelAndView mav) {
-    StressCheckResource scResource = new StressCheckResource();  
+    //StressCheckResource scResource = new StressCheckResource();  
     mav.setViewName("article_stresscheck");
     mav.addObject("resource", new StressCheckForm());
-    mav.addObject("checkitems", scResource.questionMap);
     mav.addObject("answers", scResource.checklist1);
     return mav;
   }
@@ -84,8 +85,7 @@ public class Main {
     StressCheckResource scResource = new StressCheckResource();
     mav.setViewName("article_stresscheck");
     System.out.println("form" + form);
-    mav.addObject("resource", form); // 
-    mav.addObject("checkitems", scResource.questionMap);
+    mav.addObject("resource", form);  
     mav.addObject("answers", scResource.checklist1);
     return mav;
   }
