@@ -78,7 +78,7 @@ public class Main {
     /*mav.setViewName("article_stresscheck");
     mav.addObject("resource", new StressCheckForm());
     mav.addObject("answers", scResource.checklist1);*/
-    mav = ctrl.get_stresscheck(mav)
+    mav = ctrl.get_stresscheck(mav);
     return mav;
   }
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
