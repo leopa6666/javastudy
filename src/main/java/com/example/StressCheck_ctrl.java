@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Scope("prototype")
 public class StressCheck_ctrl {
 
-  StressCheckResource scResource
+  StressCheckResource scResource;
   public StressCheck_ctrl(){
     scResource = new StressCheckResource();  
   }
