@@ -61,6 +61,7 @@ public class Main {
   }
 
   StressCheckResource scResource = new StressCheckResource();  
+  StressCheck_ctrl ctrl = new StressCheck_ctrl();
 
   @RequestMapping("/")
   String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -77,8 +78,8 @@ public class Main {
     /*mav.setViewName("article_stresscheck");
     mav.addObject("resource", new StressCheckForm());
     mav.addObject("answers", scResource.checklist1);*/
-    StressCheck_ctrl ctrl = new StressCheck_ctrl();
-    return ctrl.get_stresscheck(mav);
+    mav = ctrl.get_stresscheck(mav)
+    return mav;
   }
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
   public ModelAndView setcheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav,HttpServletRequest request) {
