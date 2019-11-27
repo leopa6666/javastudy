@@ -39,7 +39,7 @@ public class StressCheck_ctrl {
     if(req.equals("stresscheck1")){
       System.out.println("★2");
       if(request.getParameter("action").equals("next")){
-        System.out.println("★3");
+        System.out.println("★3"+scResource.checklist1);
         mav.addObject("page","stresscheck2");
         mav.addObject("answers", scResource.checklist1);
       }
