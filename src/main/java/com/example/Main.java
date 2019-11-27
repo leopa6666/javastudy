@@ -74,10 +74,11 @@ public class Main {
 
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.GET)
   public ModelAndView getcheck(ModelAndView mav) {
-    mav.setViewName("article_stresscheck");
+    /*mav.setViewName("article_stresscheck");
     mav.addObject("resource", new StressCheckForm());
-    mav.addObject("answers", scResource.checklist1);
-    return mav;
+    mav.addObject("answers", scResource.checklist1);*/
+    StressCheck_ctrl ctrl = new StressCheck_ctrl();
+    return ctrl.get_stresscheck(mav);
   }
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
   public ModelAndView setcheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav,HttpServletRequest request) {
@@ -126,8 +127,8 @@ public class Main {
       YahSearch_ctrl yah_ctrl = new YahSearch_ctrl();
       return yah_ctrl.post_yahsearch(request);
     }else if(content_key.equals("stresscheck")){
-      StressCheck_ctrl scheck_ctrl = new StressCheck_ctrl();
-      return scheck_ctrl.post_stresscheck(request);
+      //StressCheck_ctrl scheck_ctrl = new StressCheck_ctrl();
+      //return scheck_ctrl.post_stresscheck(request);
     }
     return "index";
   }
