@@ -15,7 +15,6 @@ import lombok.Data;
 
 @Data
 public class StressCheckForm {
-
   private String scheck1;
   private String scheck2;
   private String scheck3;
@@ -26,4 +25,5 @@ public class StressCheckForm {
   private String scheck8;
   private String scheck9;
   private String scheck10;
+
 }
