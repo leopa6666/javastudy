@@ -21,15 +21,16 @@
           <form action="/contents/stresscheck" method="post"  th:object="${resource}">
             <input type="hidden" name="form" value="stresscheck1" /> 
 
-            <table border="1" cellpadding="2">
-              <tr>
+            <table border="1" cellpadding="2" th:insert="|components/stresscheck1|">
+
+              <!--tr>
                 <td>質問</td>
                 <td>回答</td>
               </tr>
 
-              <div id="parent" th:insert="|components/stresscheck1|">text</div>
+              <tr>
 
-              <!--tr>
+
                 <td>頻繁に頭痛がする</td>
                 <td>
                   <div  th:each="answer,index : ${answers}">
