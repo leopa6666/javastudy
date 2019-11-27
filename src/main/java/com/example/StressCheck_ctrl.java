@@ -32,16 +32,16 @@ public class StressCheck_ctrl {
   public ModelAndView post_stresscheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav,HttpServletRequest request) throws Exception {
     mav.setViewName("article_stresscheck");
     mav.addObject("resource", form);
-    mav.addObject("page","stresscheck1")
+    mav.addObject("page","stresscheck1");
     String req = request.getParameter("form");
     if(req=="stresscheck1"){
       if(request.getParameter("action")=="next"){
-        mav.addObject("page","stresscheck2")
+        mav.addObject("page","stresscheck2");
         mav.addObject("answers", scResource.checklist1);
       }
     }else if(req=="stresscheck2"){
       if(request.getParameter("action")=="next"){
-        mav.addObject("page","stresscheck2")
+        mav.addObject("page","stresscheck2");
         mav.addObject("answers", scResource.checklist1);
       }
     }    
