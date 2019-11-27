@@ -19,11 +19,11 @@ public class StressCheckForm {
   private String scheck2;
   private String scheck3;
   private String scheck4;
-  private String scheck5;
-  private String scheck6;
-  private String scheck7;
-  private String scheck8;
-  private String scheck9;
-  private String scheck10;
+  private String scheck5;
+  private String scheck6;
+  private String scheck7;
+  private String scheck8;
+  private String scheck9;
+  private String scheck10;
 
 }
