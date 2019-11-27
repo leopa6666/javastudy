@@ -13,7 +13,7 @@ public class StressCheck_ctrl {
 
 
 
-  public String post_stresscheck(HttpServletRequest request) throws Exception {
+  public String post_stresscheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav,HttpServletRequest request) throws Exception {
 
     
     System.out.println(request.getAttribute("resource"));
