@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Scope("prototype")
 public class StressCheck_ctrl {
 
+  StressCheckResource scResource
+  public StressCheck_ctrl(){
+    scResource = new StressCheckResource();  
+  }
+  
+
   public ModelAndView get_stresscheck(ModelAndView mav) throws Exception {
 
     mav.setViewName("article_stresscheck");
