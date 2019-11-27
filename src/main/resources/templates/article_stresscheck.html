@@ -19,7 +19,6 @@
         <span>※簡易的なチェックです。</span>
 
           <form action="/contents/stresscheck" method="post"  th:object="${resource}">
-            <input type="hidden" name="form" value="stresscheck1" /> 
 
             <table border="1" cellpadding="2" th:insert="|components/stresscheck1|">
 
@@ -80,9 +79,9 @@
                 </td>
               </tr>
 
-            </table>
+            </table-->
 
-            <input type="submit" name="send" value="送信" /-->
+            <input type="submit" name="action" value="next" />
 
           </form>
       </div>
