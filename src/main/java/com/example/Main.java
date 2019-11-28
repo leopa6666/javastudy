@@ -75,9 +75,6 @@ public class Main {
 
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.GET)
   public ModelAndView getcheck(ModelAndView mav) throws Exception {
-    /*mav.setViewName("article_stresscheck");
-    mav.addObject("resource", new StressCheckForm());
-    mav.addObject("answers", scResource.checklist1);*/
     mav = ctrl.get_stresscheck(mav);
     return mav;
   }
@@ -98,11 +95,6 @@ public class Main {
       request.setAttribute("keyword", "初期値");//都道府県
     }else if(content_no.equals("jpmap")){
       //request.setAttribute("keyword", "初期値");//都道府県
-    }else if(content_no.equals("stresscheck")){
-      StressCheckResource scResource = new StressCheckResource();
-      //request.setAttribute("resource",new StressCheckResource());
-      //request.setAttribute("checkitems", scResource.questionMap);//質問マップ
-      //request.setAttribute("answers", scResource.checklist1);//回答マップ
     }
     return "article_" + content_no;
   }
@@ -119,9 +111,6 @@ public class Main {
       System.out.println("start2");
       YahSearch_ctrl yah_ctrl = new YahSearch_ctrl();
       return yah_ctrl.post_yahsearch(request);
-    }else if(content_key.equals("stresscheck")){
-      //StressCheck_ctrl scheck_ctrl = new StressCheck_ctrl();
-      //return scheck_ctrl.post_stresscheck(request);
     }
     return "index";
   }
