@@ -142,7 +142,7 @@ public class Main {
   @Bean
   public DataSource dataSource() throws SQLException {
     if (dbUrl == null || dbUrl.isEmpty()) {
-      System.out.println('★'+ HikariDataSource());
+      System.out.println(HikariDataSource());
       return new HikariDataSource();
     } else {
       HikariConfig config = new HikariConfig();
