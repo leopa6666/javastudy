@@ -73,11 +73,13 @@ public class Main {
       return new StressCheckResource();
   }
 
+  //チェック get
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.GET)
   public ModelAndView getcheck(ModelAndView mav) throws Exception {
     mav = ctrl.get_stresscheck(mav);
     return mav;
   }
+  //チェック post
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
   public ModelAndView setcheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav,HttpServletRequest request) throws Exception {
     mav = ctrl.post_stresscheck(form,mav,request);   
@@ -143,6 +145,7 @@ public class Main {
     } else {
       HikariConfig config = new HikariConfig();
       config.setJdbcUrl(dbUrl);
+      System.out.println('★'+dbUrl)
       return new HikariDataSource(config);
     }
   }
