@@ -122,6 +122,7 @@ public class Main {
     try (Connection connection = dataSource.getConnection()) {
       System.out.println('★');
       System.out.println(dataSource);
+      System.out.println(dbUrl);
       Statement stmt = connection.createStatement();
       stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
       stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
