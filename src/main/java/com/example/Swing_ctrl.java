@@ -9,6 +9,11 @@ import java.awt.BorderLayout;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 @Scope("prototype")
 public class Swing_ctrl extends JFrame {
