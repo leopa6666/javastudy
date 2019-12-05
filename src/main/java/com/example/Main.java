@@ -88,7 +88,7 @@ public class Main {
 
   //Swind get
   @RequestMapping(value = "/contents/swing", method = RequestMethod.GET)
-  public ModelAndView getcheck(ModelAndView mav) throws Exception {
+  public String getswing(HttpServletRequest request, HttpServletResponse response) throws Exception {
     Swing_ctrl ctrl = new Swing_ctrl();
     ctrl.get_swingreq();
     return "swing";
