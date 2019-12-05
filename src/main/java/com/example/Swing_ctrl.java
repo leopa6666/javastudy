@@ -7,7 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
-public class Swing_ctrl {
+public class Swing_ctrl extends JFrame {
     public void get_swingreq() {
         setTitle("title");
         setSize(640,480);
