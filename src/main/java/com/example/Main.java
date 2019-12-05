@@ -86,6 +86,14 @@ public class Main {
     return mav;
   }
 
+  //Swind get
+  @RequestMapping(value = "/contents/swing", method = RequestMethod.GET)
+  public ModelAndView getcheck(ModelAndView mav) throws Exception {
+    Swing_ctrl ctrl = new Swing_ctrl();
+    ctrl.get_swingreq()
+    return "swing";
+  }
+
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
   String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no ,Model model) throws Exception {
     
