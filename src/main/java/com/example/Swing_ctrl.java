@@ -9,9 +9,11 @@ import java.awt.BorderLayout;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
+@Controller
+@Scope("prototype")
 public class Swing_ctrl extends JFrame {
     public Swing_ctrl(){
-        
+
     }
 
     public void get_swingreq() {
