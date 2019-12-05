@@ -10,6 +10,10 @@ import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
 public class Swing_ctrl extends JFrame {
+    public Swing_ctrl(){
+        
+    }
+
     public void get_swingreq() {
         setTitle("title");
         setSize(640,480);
