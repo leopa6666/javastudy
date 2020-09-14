@@ -17,17 +17,6 @@
   }
 </style>
 <script>
-  $(function(){
-    $('.url_pc_title').on('click', function(value) {
-      window.open(value.currentTarget.innerText, '_blank'); // 新しいタブを開き、ページを表示
-    });
-
-    function getposition(position){
-    var lat_text = "緯度:" + position.coords.latitude;
-    var lon_text = "経度:" + position.coords.longitude;
-    }
-    navigator.geolocation.getCurrentPosition(getposition);
-  })
 </script>
 <div class="jumbotron text-center">
   <div class="container">
@@ -38,15 +27,17 @@
 <div class="container">
   <div class="row">
     <div>
-      <h3><span class="glyphicon glyphicon-info-sign"></span>検索条件aaa</h3>
-        <form action="/content" method="post" >
+      <h3><span class="glyphicon glyphicon-info-sign"></span>検索条件あああ</h3>
+        <form action="/content/lib" method="post" >
+          <input type="hidden" name="form" value="lib" /> 
+
           <span>都道府県:</span>
           <select name="example">
             <option th:each="op : ${option}" th:selected="${input_info.getInputAddress() == op }"><p th:text="${op}" ></p></option>
           </select>
           <input type="submit" name="search" value="実行" />
         </form>
-        <p th:text="${input_Sample}"></p>
+        <p th:text="${input_SerchResource}"></p>
         <div th:each="record : ${libmap}" class="libmap">
           <div th:each="map : ${record}">
             <span th:class="${map.key}+'_title'" th:text="${map.value}"></span>

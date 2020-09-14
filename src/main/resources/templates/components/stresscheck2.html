@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+              <input type="hidden" name="form" value="stresscheck2" /> 
+              <tr>
+                <td>質問</td>
+                <td>回答</td>
+              </tr>
+
+              <tr>
+                <td>チェック6</td>
+                <td>
+                  <div  th:each="answer,index : ${answers}">
+                    <input type="radio" th:name="scheck6" th:id="|scheck6_${index.count}|" th:field="*{scheck6}" th:value="${answer}"/>
+                    <label th:for="|scheck6_${index.count}|" th:text="${answer}"></label>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>チェック7</td>
+                <td>
+                  <div  th:each="answer,index : ${answers}">
+                    <input type="radio" th:name="scheck7" th:id="|scheck7_${index.count}|" th:field="*{scheck7}" th:value="${answer}"/>
+                    <label th:for="|scheck7_${index.count}|" th:text="${answer}"></label>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>チェック8</td>
+                <td>
+                  <div  th:each="answer,index : ${answers}">
+                    <input type="radio" th:name="scheck8" th:id="|scheck8_${index.count}|" th:field="*{scheck8}" th:value="${answer}"/>
+                    <label th:for="|scheck8_${index.count}|" th:text="${answer}"></label>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>チェック9</td>
+                <td>
+                  <div  th:each="answer,index : ${answers}">
+                    <input type="radio" th:name="scheck9" th:id="|scheck9_${index.count}|" th:field="*{scheck9}" th:value="${answer}"/>
+                    <label th:for="|scheck9_${index.count}|" th:text="${answer}"></label>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>チェック10</td>
+                <td>
+                  <div  th:each="answer,index : ${answers}">
+                    <input type="radio" th:name="scheck10" th:id="|scheck10_${index.count}|" th:field="*{scheck10}" th:value="${answer}"/>
+                    <label th:for="|scheck10_${index.count}|" th:text="${answer}"></label>
+                  </div>
+                </td>
+              </tr>
+
+</html>

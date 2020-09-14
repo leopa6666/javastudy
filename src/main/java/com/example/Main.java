@@ -28,34 +28,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.context.annotation.Scope;
 
-import java.io.InputStream;
-import javax.net.ssl.HttpsURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import javax.xml.parsers.DocumentBuilder;//
-import javax.xml.parsers.DocumentBuilderFactory;//
-
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-
 import javax.servlet.http.*;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
+
+import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView; 
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 //package com.example.MainConstants;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import org.springframework.web.bind.annotation.PathVariable;
+import java.util.*;
 
 @Controller
 @SpringBootApplication
@@ -66,91 +55,87 @@ public class Main {
 
   @Autowired
   private DataSource dataSource;
-
-  @Autowired
-  public static Sample input_Sample;
   
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
   }
+
+  StressCheckResource scResource = new StressCheckResource();  
+  StressCheck_ctrl ctrl = new StressCheck_ctrl();
 
   @RequestMapping("/")
   String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
     return "index";
   }
 
-  @RequestMapping(path = "/content", method = RequestMethod.GET)
-  String getarticle(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    input_Sample = new Sample();
-    request.setAttribute("option", MainConstants.address);//都道府県
-    request.setAttribute("input_info", input_Sample);
-    return "article";
+  @ModelAttribute
+  StressCheckResource setUpForm() {
+      return new StressCheckResource();
   }
 
-  @RequestMapping(path = "/content", method = RequestMethod.POST)
-  String setarticle(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
-    LibSearch_ctrl libs_ctrl = new LibSearch_ctrl();
-    return libs_ctrl.post_libsearch(request);
-
+  //チェック get
+  @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.GET)
+  public ModelAndView getcheck(ModelAndView mav) throws Exception {
+    mav = ctrl.get_stresscheck(mav);
+    return mav;
   }
-/* 
-  @RequestMapping(path = "/content", method = RequestMethod.POST)
-  String calil(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
+  //チェック post
+  @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
+  public ModelAndView setcheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav,HttpServletRequest request) throws Exception {
+    mav = ctrl.post_stresscheck(form,mav,request);   
+    return mav;
+  }
 
-    System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
-    //選択した都道府県セット
-    String input_address = request.getParameter("example");
-    input_Sample.setInputAddress(input_address);
-    //Modelへ
-    request.setAttribute("input_info", input_Sample);
-    request.setAttribute("option", MainConstants.address);
+  //Swind get
+  @RequestMapping(value = "/contents/swing", method = RequestMethod.GET)
+  public String getswing(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    //Swing_ctrl ctrl = new Swing_ctrl();
+    //ctrl.get_swingreq();
+    return "swing";
+  }
 
-    //リクエスト start
-    String encodedResult = URLEncoder.encode(input_address, "UTF-8");
-    URL url = new URL("https://api.calil.jp/library?appkey=eff2329beb9938a9b6443b5795ff2db1&pref="+ encodedResult);
-    HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
-    urlConn.setRequestMethod("GET");
-    urlConn.connect();
-    //Map headerFields = urlConn.getHeaderFields();
-    //リクエスト end
-
-    int rspCode = urlConn.getResponseCode();
-    if (rspCode == 200) {
-        InputStream in = urlConn.getInputStream();
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(in);
-        in.close();
+  @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
+  String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no ,Model model) throws Exception {
     
-        //3. 解析して中身をとりだします。
-        Element bookList = doc.getDocumentElement();
-        NodeList nodes = bookList.getElementsByTagName("Library");
-        ArrayList<Map<String, String>> liblist = new ArrayList<Map<String, String>>();
-        Map<Integer, Object> libmap = new HashMap<>();
-        for(int i=0; i<nodes.getLength();i++) {
-          Map<String, String> infomap = new HashMap<>();
-          Node personNode = nodes.item(i);
-          NodeList chnodes = nodes.item(i).getChildNodes();
-          for(int j=0; j<chnodes.getLength();j++){
-            String chname = chnodes.item(j).getNodeName();
-            if(chname == "formal" || chname == "url_pc" || chname == "post" || chname == "address" || chname == "tel" || chname == "category"){
-              infomap.put(chname,chnodes.item(j).getTextContent());
-            }
-          }
-          liblist.add(infomap);
-        }
-        request.setAttribute("libmap",liblist);
+    if(content_no.equals("lib")){
+      LibSerchResource input_SerchResource = new LibSerchResource();
+      request.setAttribute("option", MainConstants.address);//都道府県
+      request.setAttribute("input_info", input_SerchResource);
+    }else if(content_no.equals("yah")){
+      request.setAttribute("keyword", "初期値");//都道府県
+    }else if(content_no.equals("jpmap")){
+      //request.setAttribute("keyword", "初期値");//都道府県
     }
-    return "article";
+    return "article_" + content_no;
   }
-*/
+
+  @RequestMapping(path = "/content/{content_no}", method = RequestMethod.POST)
+  String setarticle(HttpServletRequest request, HttpServletResponse response, Map<String, Object> model) throws Exception {
+
+    String content_key = request.getParameter("form");
+    System.out.println("start1");
+    if(content_key.equals("lib")){
+      LibSearch_ctrl libs_ctrl = new LibSearch_ctrl();
+      return libs_ctrl.post_libsearch(request);
+    }else if(content_key.equals("yah")){
+      System.out.println("start2");
+      YahSearch_ctrl yah_ctrl = new YahSearch_ctrl();
+      return yah_ctrl.post_yahsearch(request);
+    }
+    return "index";
+  }
+
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
+      System.out.println('★');
+      System.out.println(dataSource);
+      System.out.println(dbUrl);
       Statement stmt = connection.createStatement();
       stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
       stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
       ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+      //ResultSet rs = stmt.executeQuery("\\d");
 
       ArrayList<String> output = new ArrayList<String>();
       while (rs.next()) {
@@ -168,10 +153,12 @@ public class Main {
   @Bean
   public DataSource dataSource() throws SQLException {
     if (dbUrl == null || dbUrl.isEmpty()) {
+      System.out.println(new HikariDataSource());
       return new HikariDataSource();
     } else {
       HikariConfig config = new HikariConfig();
       config.setJdbcUrl(dbUrl);
+      System.out.println('★'+dbUrl);
       return new HikariDataSource(config);
     }
   }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
+
+<body>
+<style>
+  .formal_title {
+    font-size: 30px;
+  }
+  .url_pc_title {
+    color: blue;
+    text-decoration:underline;
+  }
+  .libmap {
+    margin: 5px 0px;
+    padding:5px;
+    border:solid 1px #000;
+  }
+  .yahlist{
+    margin: 10px 5px;
+    border: solid 1px #000;
+  }
+</style>
+<script>
+</script>
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>Yahoo 商品検索</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div>
+      <h3><span class="glyphicon glyphicon-info-sign"></span>検索条件</h3>
+        <form action="/content/yah" method="post" >
+          <input type="hidden" name="form" value="yah" /> 
+
+          <span>キーワード:</span>
+          <input type="text" name="keyword" size="30" maxlength="20" value="" />
+          <input type="submit" name="search" value="実行" />
+        </form>
+        <div th:each="record : ${yahlist}" class="yahlist">
+          <div th:each="map : ${record}" th:class="${map.key}+'_item'">
+            <span th:class="${map.key}" th:text="${map.value}"></span>
+          </div>
+        </div>
+    </div>
+
+    <!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
+    <span style="margin:15px 15px 15px 15px"><a href="https://developer.yahoo.co.jp/about">Webサービス by Yahoo! JAPAN</a></span>
+    <!-- End Yahoo! JAPAN Web Services Attribution Snippet -->
+
+  </div>
+</div>
+
+</body>
+</html>
