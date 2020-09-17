@@ -44,6 +44,7 @@ public class YahSearch_ctrl {
 
     StringBuilder builder = new StringBuilder();
     int rspCode = urlConn.getResponseCode();
+    System.out.println("rspCode"+rspCode);
     if (rspCode == 200) {
       System.out.println("OK");
       //レスポンスの読み出し(JASON文字列の取得)

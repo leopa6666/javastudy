@@ -56,21 +56,24 @@ public class Main {
   @Autowired
   private DataSource dataSource;
   
+
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
   }
 
+  //ストレスチェック
   StressCheckResource scResource = new StressCheckResource();  
   StressCheck_ctrl ctrl = new StressCheck_ctrl();
-
-  @RequestMapping("/")
-  String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    return "index";
-  }
-
+  
   @ModelAttribute
   StressCheckResource setUpForm() {
       return new StressCheckResource();
+  }
+
+  //Top
+  @RequestMapping("/")
+  String index(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    return "index";
   }
 
   //チェック get
@@ -94,6 +97,7 @@ public class Main {
     return "swing";
   }
 
+  //
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
   String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no ,Model model) throws Exception {
     
@@ -125,6 +129,7 @@ public class Main {
     return "index";
   }
 
+  //DB
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
