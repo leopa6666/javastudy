@@ -36,7 +36,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.springframework.ui.Model;
-import org.springframework.web.servlet.ModelAndView; 
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 //package com.example.MainConstants;
@@ -55,17 +55,16 @@ public class Main {
 
   @Autowired
   private DataSource dataSource;
-  
+
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
-    //aaa
   }
 
   //ストレスチェック
-  StressCheckResource scResource = new StressCheckResource();  
+  StressCheckResource scResource = new StressCheckResource();
   StressCheck_ctrl ctrl = new StressCheck_ctrl();
-  
+
   @ModelAttribute
   StressCheckResource setUpForm() {
       return new StressCheckResource();
@@ -86,7 +85,7 @@ public class Main {
   //チェック post
   @RequestMapping(value = "/contents/stresscheck", method = RequestMethod.POST)
   public ModelAndView setcheck(@ModelAttribute("resource") StressCheckForm form,ModelAndView mav,HttpServletRequest request) throws Exception {
-    mav = ctrl.post_stresscheck(form,mav,request);   
+    mav = ctrl.post_stresscheck(form,mav,request);
     return mav;
   }
 
@@ -101,7 +100,7 @@ public class Main {
   //
   @RequestMapping(path = "/content/{content_no}", method = RequestMethod.GET)
   String getarticle(HttpServletRequest request, HttpServletResponse response, @PathVariable String content_no ,Model model) throws Exception {
-    
+
     if(content_no.equals("lib")){
       LibSerchResource input_SerchResource = new LibSerchResource();
       request.setAttribute("option", MainConstants.address);//都道府県
