@@ -47,7 +47,7 @@ public class StressCheck_ctrl {
         mav.addObject("answers", scResource.checklist1);
       }
     }
-    System.out.println("★ストレス"+form);
+    System.out.println("★aaa"+form);
     return mav;
   }
 }
