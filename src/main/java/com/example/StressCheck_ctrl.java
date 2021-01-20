@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.ui.Model;
-import org.springframework.web.servlet.ModelAndView; 
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
@@ -17,9 +17,9 @@ public class StressCheck_ctrl {
 
   StressCheckResource scResource;
   public StressCheck_ctrl(){
-    scResource = new StressCheckResource();  
+    scResource = new StressCheckResource();
   }
-  
+
 
   public ModelAndView get_stresscheck(ModelAndView mav) throws Exception {
 
@@ -47,7 +47,7 @@ public class StressCheck_ctrl {
         mav.addObject("answers", scResource.checklist1);
       }
     }
-    System.out.println("★"+form);
+    System.out.println("★ストレス"+form);
     return mav;
   }
 }
