@@ -56,15 +56,16 @@ public class YahSearch_ctrl {
       ObjectMapper mapper = new ObjectMapper();
       JsonNode root = mapper.readTree(builder.toString());
       System.out.println("★"+root);
-      Integer count = Integer.parseInt(root.get("ResultSet").get("totalResultsReturned").toString());
+      //Integer count = Integer.parseInt(root.get("ResultSet").get("totalResultsReturned").toString());
+      Integer count = Integer.parseInt(root.get("totalResultsReturned").toString());
       ArrayList<Map<String, String>> yahlist = new ArrayList<Map<String, String>>();
 
       for(Integer i=0; i < count ;i++){
         Map<String, String> infomap = new HashMap<>();
-        infomap.put("1" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("hits/name").textValue());
-        infomap.put("2" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Description").textValue());
-        infomap.put("3" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Url").textValue());
-        infomap.put("4" , root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Price").textValue());
+        infomap.put("1" , root.get("hits").get(i.toString()).get("name").textValue());
+        //infomap.put("2" , root.get("hits").get("0").get("Result").get(i.toString()).get("Description").textValue());
+        //infomap.put("3" , root.get("hits").get("0").get("Result").get(i.toString()).get("Url").textValue());
+        //infomap.put("4" , root.get("hits").get("0").get("Result").get(i.toString()).get("Price").textValue());
         yahlist.add(infomap);
         //System.out.println(root.get("ResultSet").get("0").get("Result").get(i.toString()).get("Name").textValue());
       }
