@@ -55,7 +55,7 @@ public class YahSearch_ctrl {
       }
       ObjectMapper mapper = new ObjectMapper();
       JsonNode root = mapper.readTree(builder.toString());
-      System.out.println("★root");
+      System.out.println("★"+root);
       Integer count = Integer.parseInt(root.get("ResultSet").get("totalResultsReturned").toString());
       ArrayList<Map<String, String>> yahlist = new ArrayList<Map<String, String>>();
 
