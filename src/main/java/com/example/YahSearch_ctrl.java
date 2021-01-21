@@ -24,7 +24,7 @@ import java.io.*;
 @Controller
 @Scope("prototype")
 public class YahSearch_ctrl {
-  
+
   public String post_yahsearch(HttpServletRequest request) throws Exception {
     System.out.println("start3");
     System.setProperty("javax.net.ssl.trustStore", "jssecacerts.cert");
@@ -35,7 +35,7 @@ public class YahSearch_ctrl {
     String encodedResult = URLEncoder.encode(input_keyword, "UTF-8");
     String yahId = System.getenv("YAHOO_CLIENT_ID");
     String yahQuery = create_query(request);
-    URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId + yahQuery);
+    URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid="+ yahId + yahQuery);
     //URL url = new URL("https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid="+ yahId +"&query="+encodedResult);
     HttpsURLConnection urlConn = (HttpsURLConnection) url.openConnection();
     urlConn.setRequestMethod("GET");
