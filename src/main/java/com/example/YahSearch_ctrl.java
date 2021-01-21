@@ -63,7 +63,7 @@ public class YahSearch_ctrl {
       for(Integer i=0; i < count ;i++){
         Map<String, String> infomap = new HashMap<>();
         System.out.println("★"+i);
-        System.out.println("★"+root.get("hits").get("0"));
+        System.out.println("★"+root.get("hits").get(0));
         infomap.put("1" , root.get("hits").get("0").get("name").textValue());
         //infomap.put("2" , root.get("hits").get("0").get("Result").get(i.toString()).get("Description").textValue());
         //infomap.put("3" , root.get("hits").get("0").get("Result").get(i.toString()).get("Url").textValue());
