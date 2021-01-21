@@ -59,7 +59,7 @@ public class YahSearch_ctrl {
       //Integer count = Integer.parseInt(root.get("ResultSet").get("totalResultsReturned").toString());
       Integer count = Integer.parseInt(root.get("totalResultsReturned").toString());
       ArrayList<Map<String, String>> yahlist = new ArrayList<Map<String, String>>();
-
+      System.out.println("★"+root.get("hits"));
       for(Integer i=0; i < count ;i++){
         Map<String, String> infomap = new HashMap<>();
         infomap.put("1" , root.get("hits").get(i.toString()).get("name").textValue());
