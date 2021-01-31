@@ -65,6 +65,8 @@ public class YahSearch_ctrl {
         System.out.println("★"+i);
         System.out.println("★"+root.get("hits").get(i));
         infomap.put("1" , root.get("hits").get(i).get("name").textValue());
+        infomap.put("2" , root.get("hits").get(i).get("index").textValue());
+        infomap.put("3" , root.get("hits").get(i).get("description").textValue());
         //infomap.put("2" , root.get("hits").get("0").get("Result").get(i.toString()).get("Description").textValue());
         //infomap.put("3" , root.get("hits").get("0").get("Result").get(i.toString()).get("Url").textValue());
         //infomap.put("4" , root.get("hits").get("0").get("Result").get(i.toString()).get("Price").textValue());
